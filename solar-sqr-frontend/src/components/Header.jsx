@@ -2,6 +2,8 @@ import React from 'react';
 import { AppBar, Toolbar, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/logo.svg';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 const Header = () => {
     const navItems = ['Our Offerings', 'Solar Solutions', 'Our Presence', 'Blog', 'More'];
@@ -76,7 +78,10 @@ const Header = () => {
                                         cursor: 'pointer',
                                     }}
                                 >
+                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                                     Our Offerings
+                                    <ExpandMoreIcon sx={{ fontSize: 18 }} />
+                                    </Box>
                                     {openDropdown && (
                                         <Box
                                             onMouseEnter={() => setOpenDropdown(true)}
@@ -106,7 +111,7 @@ const Header = () => {
                                                         padding: '8px',
                                                         color: '#2C3045',
                                                         fontFamily: 'Poppins, sans-serif',
-                                                        fontSize: '20px',
+                                                        fontSize: '17px',
                                                         fontWeight: 500,
                                                         textDecoration: 'none',
                                                         display: 'flex',
