@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Components
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
-import ServicesSection from './components/ServicesSection';
+// import HoverSplitGallery from './components/HoverSplitGallery';
+import OurSolarSolution from './components/OurSolarSolution';
+import TestimonialSection from './components/TestimonialSection';
 
 // Pages (route components)
 import Home from './pages/Home';
@@ -16,7 +18,9 @@ function App() {
     <Router>
       <Header />
       <HeroSection />
-      <ServicesSection />
+      <OurSolarSolution />
+      <TestimonialSection />
+      {/* <HoverSplitGallery />  */}
 
       <Routes>
         <Route path="/homes" element={<Home />} />

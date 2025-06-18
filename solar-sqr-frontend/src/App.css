@@ -1,5 +1,8 @@
+/* App.css - Optional component-level styles (if used) */
+
 .App {
   text-align: center;
+  overflow-x: hidden; /* ✅ Also prevent scroll here */
 }
 
 .App-logo {

@@ -1,21 +1,21 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import SolarRoof from '../assets/landing.jpg';
+import HeroBg from '../assets/landing.jpg'; // Update path if needed
 
 const HeroSection = () => {
   return (
     <Box
       sx={{
         width: '100%',
-        height: 'calc(100vh - 80px)', // adjust if your navbar height is different
-        backgroundImage: `url(${SolarRoof})`,
+        height: 'calc(100vh - 80px)', // Adjust based on your actual navbar height
+        backgroundImage: `url(${HeroBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         display: 'flex',
         alignItems: 'center',
         paddingLeft: { xs: 4, md: 20 },
-        backgroundColor: '#000', // optional fallback
+        backgroundColor: '#000', // fallback
       }}
     >
       <Box sx={{ color: '#ffffff', maxWidth: '600px' }}>
