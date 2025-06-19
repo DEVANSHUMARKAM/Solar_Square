@@ -1,38 +1,38 @@
 import React, { useEffect, useRef } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 
-const reviews = [
-  {
-    quote: `I am a working person, but the SolarSquare team did everything perfectly even though I wasn’t present on the site. My bills have gone down from Rs 4300 to Rs 500–700 a month.`,
-    name: 'Braj Bhushan',
-    location: 'Uttar Pradesh',
-    system: 'Home solar system',
-  },
-  {
-    quote: "Fantastic experience! Highly recommend their professionalism.",
-    name: 'Shruti Mehta',
-    location: 'Delhi',
-    system: 'Commercial solar system',
-  },
-  {
-    quote: "Fast installation, helpful staff, and clean execution.",
-    name: 'Ajay Kumar',
-    location: 'Pune',
-    system: 'Housing society setup',
-  },
-  {
-    quote: "Smooth onboarding, brilliant service overall!",
-    name: 'Ritika Jain',
-    location: 'Nagpur',
-    system: 'Home solar system',
-  },
-  {
-    quote: "They handled the whole process smoothly. Subsidy, net metering, and installation.",
-    name: 'Suresh Verma',
-    location: 'Bhopal',
-    system: 'Home solar system',
-  },
-];
+// const reviews = [
+//   {
+//     quote: `I am a working person, but the SolarSquare team did everything perfectly even though I wasn’t present on the site. My bills have gone down from Rs 4300 to Rs 500–700 a month.`,
+//     name: 'Braj Bhushan',
+//     location: 'Uttar Pradesh',
+//     system: 'Home solar system',
+//   },
+//   {
+//     quote: "Fantastic experience! Highly recommend their professionalism.",
+//     name: 'Shruti Mehta',
+//     location: 'Delhi',
+//     system: 'Commercial solar system',
+//   },
+//   {
+//     quote: "Fast installation, helpful staff, and clean execution.",
+//     name: 'Ajay Kumar',
+//     location: 'Pune',
+//     system: 'Housing society setup',
+//   },
+//   {
+//     quote: "Smooth onboarding, brilliant service overall!",
+//     name: 'Ritika Jain',
+//     location: 'Nagpur',
+//     system: 'Home solar system',
+//   },
+//   {
+//     quote: "They handled the whole process smoothly. Subsidy, net metering, and installation.",
+//     name: 'Suresh Verma',
+//     location: 'Bhopal',
+//     system: 'Home solar system',
+//   },
+// ];
 
 const TestimonialSection = () => {
   const scrollRef = useRef(null);
@@ -125,7 +125,7 @@ const TestimonialSection = () => {
         </Grid>
 
         {/* Right Side Auto-Scrolling Reviews */}
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
           <Box
             ref={scrollRef}
             onMouseEnter={() => (pauseScroll.current = true)}
@@ -177,7 +177,7 @@ const TestimonialSection = () => {
               </Box>
             ))}
           </Box>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Box>
   );

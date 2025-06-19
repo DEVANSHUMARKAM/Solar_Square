@@ -12,6 +12,7 @@ import FAQSection from './components/FAQSection';
 import NewsSection from './components/NewsSection';
 import IntroAccordion from './components/IntroAccordion';
 import Footer from './components/Footer';
+// import LocationFooter from './components/LocationFooter';
 
 // Pages (route components)
 import Home from './pages/Home';
@@ -30,6 +31,7 @@ function App() {
       <NewsSection />
       <IntroAccordion />
       <Footer />
+      {/* <LocationFooter /> */}
       {/* <HoverSplitGallery />  */}
 
       <Routes>
