@@ -1,3 +1,8 @@
+/* In App.css or index.css */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
 /* App.css - Optional component-level styles (if used) */
 
 .App {

@@ -1,49 +1,68 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 
 const reviews = [
-  "I am happy to acknowledge that SolarSquare has met the strictest Quality &amp; Safety norms dictated by the Global Standards of Johnson &amp; Johnson.",
-  "Fantastic experience! Highly recommend their professionalism.",
-  "Our electricity bill is now zero. Can’t believe it!",
-  "Fast installation, helpful staff, and clean execution.",
-  "SolarSquare’s team was efficient and courteous.",
-  "Their pricing was transparent and worth every rupee.",
-  "Customer support was responsive even post-installation.",
-  "Everything was explained clearly before and after setup.",
-  "We got net metering set up fast — loved it.",
-  "Service exceeded expectations — from start to finish.",
+  {
+    quote: `I am a working person, but the SolarSquare team did everything perfectly even though I wasn’t present on the site. My bills have gone down from Rs 4300 to Rs 500–700 a month.`,
+    name: 'Braj Bhushan',
+    location: 'Uttar Pradesh',
+    system: 'Home solar system',
+  },
+  {
+    quote: "Fantastic experience! Highly recommend their professionalism.",
+    name: 'Shruti Mehta',
+    location: 'Delhi',
+    system: 'Commercial solar system',
+  },
+  {
+    quote: "Fast installation, helpful staff, and clean execution.",
+    name: 'Ajay Kumar',
+    location: 'Pune',
+    system: 'Housing society setup',
+  },
+  {
+    quote: "Smooth onboarding, brilliant service overall!",
+    name: 'Ritika Jain',
+    location: 'Nagpur',
+    system: 'Home solar system',
+  },
+  {
+    quote: "They handled the whole process smoothly. Subsidy, net metering, and installation.",
+    name: 'Suresh Verma',
+    location: 'Bhopal',
+    system: 'Home solar system',
+  },
 ];
 
 const TestimonialSection = () => {
-  const [startIndex, setStartIndex] = useState(0);
-  const intervalRef = useRef(null);
-  const reviewBoxRef = useRef(null);
-  const hoverPause = useRef(false);
-
-  const startAutoScroll = () => {
-    if (!intervalRef.current) {
-      intervalRef.current = setInterval(() => {
-        if (!hoverPause.current) {
-          setStartIndex((prev) => (prev + 1) % reviews.length);
-        }
-      }, 3000);
-    }
-  };
-
-  const stopAutoScroll = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  };
+  const scrollRef = useRef(null);
+  const pauseScroll = useRef(false);
 
   useEffect(() => {
-    startAutoScroll();
-    return () => stopAutoScroll();
-  }, []);
+    const scrollBox = scrollRef.current;
 
-  const activeReview = reviews[startIndex];
-  const nextReview = reviews[(startIndex + 1) % reviews.length];
+    // Duplicate content for seamless loop
+    const contentClone = scrollBox.innerHTML;
+    scrollBox.innerHTML += contentClone;
+
+    let scrollY = 0;
+    let animationFrameId;
+
+    const scrollStep = () => {
+      if (!pauseScroll.current) {
+        scrollY += 0.5; // speed
+        if (scrollY >= scrollBox.scrollHeight / 2) {
+          scrollY = 0;
+        }
+        scrollBox.scrollTop = scrollY;
+      }
+      animationFrameId = requestAnimationFrame(scrollStep);
+    };
+
+    scrollStep();
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
 
   return (
     <Box
@@ -105,61 +124,58 @@ const TestimonialSection = () => {
           </Box>
         </Grid>
 
-        {/* Right Side: Auto-Scrolling Reviews */}
+        {/* Right Side Auto-Scrolling Reviews */}
         <Grid item xs={12} md={6}>
           <Box
-            onMouseEnter={() => {
-              hoverPause.current = true;
-              stopAutoScroll();
-            }}
-            onMouseLeave={() => {
-              hoverPause.current = false;
-              startAutoScroll();
-            }}
-            ref={reviewBoxRef}
+            ref={scrollRef}
+            onMouseEnter={() => (pauseScroll.current = true)}
+            onMouseLeave={() => (pauseScroll.current = false)}
             sx={{
-              height: '350px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              gap: 3,
-              transition: 'all 0.6s ease-in-out',
+              height: '370px',
               overflow: 'hidden',
+              background: 'linear-gradient(90.16deg, #101f9d -15.84%, #11111c 122.54%)',
+              borderRadius: '12px',
+              px: 2,
+              py: 2,
+              maxWidth: '100%',
+              scrollbarWidth: 'none',
+              '&::-webkit-scrollbar': { display: 'none' },
             }}
           >
-            <Box
-              sx={{
-                backgroundColor: '#101f9d',
-                color: '#fff',
-                padding: 3,
-                borderRadius: 2,
-                boxShadow: 6,
-                fontFamily: 'Poppins, sans-serif',
-                fontWeight: 500,
-                minHeight: '120px',
-                display: 'flex',
-                alignItems: 'center',
-                transition: 'all 0.5s ease',
-              }}
-            >
-              {activeReview}
-            </Box>
-
-            <Box
-              sx={{
-                backgroundColor: '#e0e0e0',
-                color: '#333',
-                padding: 3,
-                borderRadius: 2,
-                fontFamily: 'Poppins, sans-serif',
-                minHeight: '120px',
-                display: 'flex',
-                alignItems: 'center',
-                transition: 'all 0.5s ease',
-              }}
-            >
-              {nextReview}
-            </Box>
+            {reviews.concat(reviews).map((r, i) => (
+              <Box
+                key={i}
+                className="review-card"
+                sx={{
+                  transition: 'all 0.3s ease-out',
+                  background: '#fff',
+                  borderRadius: '16px',
+                  boxShadow: 2,
+                  mb: 3,
+                  p: 3,
+                  fontFamily: 'Poppins, sans-serif',
+                  textAlign: 'center',
+                  transform: 'scale(1)',
+                  opacity: 0.9,
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: '15px',
+                    mb: 1,
+                    whiteSpace: 'normal',
+                    wordWrap: 'break-word',
+                    overflowWrap: 'break-word',
+                    color: '#333',
+                  }}
+                >
+                  “{r.quote}”
+                </Typography>
+                <Typography sx={{ fontWeight: 600, fontSize: 14, color: '#555' }}>
+                  – {r.name}, {r.location} <br />({r.system})
+                </Typography>
+              </Box>
+            ))}
           </Box>
         </Grid>
       </Grid>

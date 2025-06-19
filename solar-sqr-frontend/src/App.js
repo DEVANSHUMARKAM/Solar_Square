@@ -7,6 +7,11 @@ import HeroSection from './components/HeroSection';
 // import HoverSplitGallery from './components/HoverSplitGallery';
 import OurSolarSolution from './components/OurSolarSolution';
 import TestimonialSection from './components/TestimonialSection';
+import MarqueeSection from './components/MarqueeSection';
+import FAQSection from './components/FAQSection';
+import NewsSection from './components/NewsSection';
+import IntroAccordion from './components/IntroAccordion';
+import Footer from './components/Footer';
 
 // Pages (route components)
 import Home from './pages/Home';
@@ -20,6 +25,11 @@ function App() {
       <HeroSection />
       <OurSolarSolution />
       <TestimonialSection />
+      <MarqueeSection />
+      <FAQSection />
+      <NewsSection />
+      <IntroAccordion />
+      <Footer />
       {/* <HoverSplitGallery />  */}
 
       <Routes>
