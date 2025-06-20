@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/logo.svg';
+import Logo from '../assets/logo.png';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 

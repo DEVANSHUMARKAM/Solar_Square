@@ -7,6 +7,12 @@ import Recommend from '../components/Recommend'
 import FAQSection from '../components/FAQSection';
 import Footer from '../components/Footer';
 import LocationFooter from '../components/LocationFooter';
+import SolarLocations from '../components/SolarLocations';
+import GuideBookSection from '../components/GuideBookSection';
+import WhoWeAreSection from '../components/WhoWeAreSection';
+import ParallaxSection from '../components/ParallaxSection';
+import MarqueeSection from '../components/MarqueeSection';
+import SolarSwitchTimeline from '../components/SolarSwitchTimeline';
 
 const HomePage = () => {
   return (
@@ -15,6 +21,13 @@ const HomePage = () => {
       <ConsultationSection />
       <NewsSection />
       <WhyChooseSolar />
+      <SolarLocations />
+      <GuideBookSection />
+      <WhoWeAreSection/>
+      <ParallaxSection />
+      <MarqueeSection />
+      <SolarSwitchTimeline />
+
 
       <Recommend />
       <FAQSection />

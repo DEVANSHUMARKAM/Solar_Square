@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid, Typography, Link, IconButton, Container } from '@mui/material';
 import { Facebook, Twitter, LinkedIn, Instagram } from '@mui/icons-material';
-import WhiteLogo from '../assets/brand-logo-white.svg';
+import WhiteLogo from '../assets/brand-logo-white.png';
 
 const Footer = () => {
   return (

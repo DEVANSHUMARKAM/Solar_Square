@@ -3,10 +3,10 @@ import React from 'react';
 import { Box, Typography, Grid, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-import IconFinance from '../assets/emi.svg';
-import IconStorm from '../assets/cyclone.svg';
-import IconLeak from '../assets/waterleak.svg';
-import IconMaintain from '../assets/maintenance.svg';
+import IconFinance from '../assets/emi.png';
+import IconStorm from '../assets/cyclone.png';
+import IconLeak from '../assets/waterleak.png';
+import IconMaintain from '../assets/maintenance.png';
 
 const data = [
   {
