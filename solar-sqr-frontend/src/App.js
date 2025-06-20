@@ -3,18 +3,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Components
 import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-// import HoverSplitGallery from './components/HoverSplitGallery';
+import Landing from './components/Landing';
 import OurSolarSolution from './components/OurSolarSolution';
-import TestimonialSection from './components/TestimonialSection';
+import Recommend from './components/Recommend';
 import MarqueeSection from './components/MarqueeSection';
 import FAQSection from './components/FAQSection';
 import NewsSection from './components/NewsSection';
 import IntroAccordion from './components/IntroAccordion';
 import Footer from './components/Footer';
-// import LocationFooter from './components/LocationFooter';
+import LocationFooter from './components/LocationFooter';
 
-// Pages (route components)
+// Pages
 import Home from './pages/Home';
 import Commercial from './pages/Commercial';
 import HousingSociety from './pages/HousingSociety';
@@ -23,18 +22,27 @@ function App() {
   return (
     <Router>
       <Header />
-      <HeroSection />
-      <OurSolarSolution />
-      <TestimonialSection />
-      <MarqueeSection />
-      <FAQSection />
-      <NewsSection />
-      <IntroAccordion />
-      <Footer />
-      {/* <LocationFooter /> */}
-      {/* <HoverSplitGallery />  */}
 
       <Routes>
+        {/* Landing Page Route */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Landing />
+              <OurSolarSolution />
+              <Recommend />
+              <MarqueeSection />
+              <FAQSection />
+              <NewsSection />
+              <IntroAccordion />
+              <Footer />
+              <LocationFooter />
+            </>
+          }
+        />
+
+        {/* Other Pages */}
         <Route path="/homes" element={<Home />} />
         <Route path="/commercial" element={<Commercial />} />
         <Route path="/housing-society" element={<HousingSociety />} />

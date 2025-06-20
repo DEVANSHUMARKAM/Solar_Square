@@ -27,7 +27,7 @@ const Header = () => {
                 }}
             >
                 {/* Logo */}
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Link to="/" style={{ textDecoration: 'none' }}>
                     <img
                         src={Logo}
                         alt="SolarSquare Logo"
@@ -36,9 +36,11 @@ const Header = () => {
                             marginLeft: '200px',
                             marginTop: '0px',
                             marginBottom: '0px',
+                            cursor: 'pointer',
                         }}
                     />
-                </Box>
+                </Link>
+
 
                 {/* NAV + CTA CONTAINER */}
                 <Box
@@ -79,8 +81,8 @@ const Header = () => {
                                     }}
                                 >
                                     <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                    Our Offerings
-                                    <ExpandMoreIcon sx={{ fontSize: 18 }} />
+                                        Our Offerings
+                                        <ExpandMoreIcon sx={{ fontSize: 18 }} />
                                     </Box>
                                     {openDropdown && (
                                         <Box
