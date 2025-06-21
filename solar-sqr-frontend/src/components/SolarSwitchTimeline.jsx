@@ -1,11 +1,13 @@
+// src/components/SolarSwitchTimeline.jsx
+
 import React from 'react';
 import {
   Box,
   Typography,
   Grid,
   Button,
-  useTheme,
   useMediaQuery,
+  useTheme,
 } from '@mui/material';
 
 import StepIcon1 from '../assets/free-in-home.png';
@@ -20,44 +22,44 @@ const steps = [
   {
     title: 'Free in-home consultation',
     description:
-      'A SolarSquare consultant will survey your home, answer your questions and generate a custom digital design of what the solar system will look like on your roof.',
+      'Our expert visits your home, answers your questions, and shows you a 3D solar layout customized for your rooftop.',
     icon: StepIcon1,
     button: 'Schedule a free consultation',
   },
   {
-    title: 'Personalised solar proposal & dedicated manager',
+    title: 'Personalised proposal & dedicated manager',
     description:
-      'Based on your requirements, our team will create a custom proposal for you. A Delight Manager is also assigned to answer your queries and keep you updated on the project.',
+      'You get a tailor-made solar proposal with pricing and savings, along with a dedicated Delight Manager.',
     icon: StepIcon2,
   },
   {
-    title: 'Paperwork and subsidy assistance',
+    title: 'Paperwork & subsidy help',
     description:
-      'End-to-end paperwork management by us for hassle-free coordination with the local discom and securing subsidy.',
+      'We handle all the paperwork with local DISCOMs and help you apply for government subsidies.',
     icon: StepIcon3,
   },
   {
-    title: 'Step-by-step professional & safe installation',
+    title: 'Safe rooftop solar installation',
     description:
-      'Once you submit the advance amount, your rooftop system will arrive in stylish delivery vans and installed in a timely, clean and professional manner.',
+      'We install your system using chemical anchoring, tested for extreme weather and cyclone protection.',
     icon: StepIcon4,
   },
   {
-    title: 'Connection to the grid',
+    title: 'Connection to the power grid',
     description:
-      'We coordinate with the discom to connect your system to the power grid and install a new electricity meter.',
+      'We ensure smooth connection to the grid with new bi-directional meter installation.',
     icon: StepIcon5,
   },
   {
-    title: 'Power on your new system',
+    title: 'Powering your solar system',
     description:
-      'Switch on your system to enjoy reduced electricity bills and an energy-independent future!',
+      'Switch on your new solar system and start saving instantly on your electricity bills!',
     icon: StepIcon6,
   },
   {
-    title: 'Deep cleaning and maintenance',
+    title: '5-year deep cleaning & maintenance',
     description:
-      'We’ll call you to schedule quarterly deep cleaning and preventive health checks of your system for 5 years.',
+      'We call you for quarterly cleaning and checkups, keeping your system in top condition.',
     icon: StepIcon7,
   },
 ];
@@ -75,16 +77,15 @@ const SolarSwitchTimeline = () => {
       }}
     >
       <Typography
-        variant="h4"
+        variant="h3"
         align="center"
-        sx={{ fontWeight: 900, color: '#fff', mb: 1, fontFamily: 'Poppins' }}
+        sx={{ fontWeight: 1000, fontSize: 60, color: '#fff', fontFamily: 'Poppins', mb: 1 }}
       >
         The solar switch made simple
       </Typography>
       <Typography
-        variant="body1"
         align="center"
-        sx={{ color: '#e0e0e0', mb: 6, fontFamily: 'Poppins' }}
+        sx={{ color: '#d1d1d1', mb: 6, fontSize: 20, fontFamily: 'Poppins' }}
       >
         Switching to solar can seem daunting, but we’ve got you covered. Here’s how it works
       </Typography>
@@ -92,35 +93,34 @@ const SolarSwitchTimeline = () => {
       <Box
         sx={{
           position: 'relative',
-          maxWidth: '1300px',
+          maxWidth: '1200px',
           mx: 'auto',
           '&::before': {
             content: '""',
             position: 'absolute',
-            left: '50%',
             top: 0,
             bottom: 0,
+            left: '50%',
             width: '4px',
-            backgroundColor: '#fff',
+            backgroundColor: '#ffffff80',
             transform: 'translateX(-50%)',
-            zIndex: 1,
           },
         }}
       >
         {steps.map((step, index) => {
-          const isLeft = index % 2 === 0 || isMobile;
+          const isLeft = index % 2 === 0;
 
           return (
             <Grid
               container
               key={index}
               sx={{
-                mb: 8,
                 position: 'relative',
-                justifyContent: 'center',
+                mb: 10,
               }}
+              justifyContent="center"
             >
-              {/* Dot */}
+              {/* Dot on the vertical line */}
               <Box
                 sx={{
                   position: 'absolute',
@@ -135,32 +135,42 @@ const SolarSwitchTimeline = () => {
                 }}
               />
 
-              {/* Content Side */}
+              {/* Content near center */}
               <Grid
                 item
                 xs={12}
                 md={5.5}
                 sx={{
+                  order: isMobile ? 2 : isLeft ? 1 : 3,
+                  pl: isLeft
+                    ? 0
+                    : index === 1 || index === 3 || index === 5
+                      ? '630px'
+                      : 4,
+                  pr: isLeft
+                    ? index === 0 || index === 2 || index === 4 || index === 6
+                      ? '630px'
+                      : 4
+                    : 0,
                   textAlign: isLeft ? 'right' : 'left',
-                  pr: isLeft ? 4 : 0,
-                  pl: isLeft ? 0 : 4,
-                  order: isLeft ? 1 : 3,
                 }}
               >
+
                 <Box>
                   <Box
                     component="img"
                     src={step.icon}
                     alt={step.title}
-                    sx={{ width: 70, mb: 2 }}
+                    sx={{ width: 80, mb: 2 }}
                   />
                   <Typography
                     variant="h6"
                     sx={{
-                      fontWeight: 700,
+                      fontWeight: 900,
                       color: '#fff',
-                      fontFamily: 'Poppins, sans-serif',
-                      mb: 1,
+                      fontFamily: 'Poppins-Regular',
+                      mb: 2,
+                      wordWrap: 'break-word',
                     }}
                   >
                     {step.title}
@@ -168,8 +178,8 @@ const SolarSwitchTimeline = () => {
                   <Typography
                     sx={{
                       color: '#ccc',
-                      fontSize: 15,
-                      fontFamily: 'Poppins',
+                      fontSize: 20,
+                      fontFamily: 'Poppins-Regular',
                       mb: step.button ? 2 : 0,
                     }}
                   >
@@ -179,15 +189,15 @@ const SolarSwitchTimeline = () => {
                     <Button
                       variant="contained"
                       sx={{
+                        mt: 2,
                         backgroundColor: '#00d2ff',
                         color: '#000',
                         fontWeight: 600,
-                        textTransform: 'none',
                         borderRadius: '8px',
-                        mt: 1,
+                        textTransform: 'none',
                         px: 3,
                         py: 1,
-                        fontFamily: 'Poppins, sans-serif',
+                        fontFamily: 'Poppins',
                         '&:hover': {
                           backgroundColor: '#00b8e0',
                         },
@@ -199,8 +209,8 @@ const SolarSwitchTimeline = () => {
                 </Box>
               </Grid>
 
-              {/* Empty Grid for spacing */}
-              <Grid item xs={12} md={5.5} order={isLeft ? 3 : 1} />
+              {/* Spacer to balance alignment */}
+              <Grid item xs={12} md={5.5} order={isMobile ? 3 : isLeft ? 3 : 1} />
             </Grid>
           );
         })}
