@@ -13,10 +13,11 @@ import WhoWeAreSection from '../components/WhoWeAreSection';
 import ParallaxSection from '../components/ParallaxSection';
 import MarqueeSection from '../components/MarqueeSection';
 import SolarSwitchTimeline from '../components/SolarSwitchTimeline';
-
+import Header from '../components/Header';
 const HomePage = () => {
   return (
     <>
+      <Header/>
       <HomeBannerSlider />
       <ConsultationSection />
       <NewsSection />
