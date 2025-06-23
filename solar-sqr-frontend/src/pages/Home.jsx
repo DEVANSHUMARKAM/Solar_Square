@@ -1,19 +1,21 @@
 import React from 'react';
-import HomeBannerSlider from '../components/HomeBannerSlider';
-import ConsultationSection from '../components/ConsultationSection';
-import NewsSection from '../components/NewsSection';
-import WhyChooseSolar from '../components/WhyChooseSolar';
-import Recommend from '../components/Recommend'
-import FAQSection from '../components/FAQSection';
-import Footer from '../components/Footer';
-import LocationFooter from '../components/LocationFooter';
-import SolarLocations from '../components/SolarLocations';
-import GuideBookSection from '../components/GuideBookSection';
-import WhoWeAreSection from '../components/WhoWeAreSection';
-import ParallaxSection from '../components/ParallaxSection';
-import MarqueeSection from '../components/MarqueeSection';
-import SolarSwitchTimeline from '../components/SolarSwitchTimeline';
-import Header from '../components/Header';
+import HomeBannerSlider from '../components/Home/HomeBannerSlider';
+import ConsultationSection from '../components/Home/ConsultationSection';
+import NewsSection from '../components/Home/NewsSection';
+import WhyChooseSolar from '../components/Home/WhyChooseSolar';
+import Recommend from '../components/Home/Recommend'
+import FAQSection from '../components/Home/FAQSection';
+import Footer from '../components/Main/Footer';
+import LocationFooter from '../components/Main/LocationFooter';
+import SolarLocations from '../components/Home/SolarLocations';
+import GuideBookSection from '../components/Home/GuideBookSection';
+import WhoWeAreSection from '../components/Home/WhoWeAreSection';
+import ParallaxSection from '../components/Home/ParallaxSection';
+import MarqueeSection from '../components/Home/MarqueeSection';
+import SolarSwitchTimeline from '../components/Home/SolarSwitchTimeline';
+import Header from '../components/Main/Header';
+
+
 const HomePage = () => {
   return (
     <>

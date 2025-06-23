@@ -2,22 +2,22 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Components
-import Header from './components/Header';
-import Landing from './components/Landing';
-import OurSolarSolution from './components/OurSolarSolution';
-import Recommend from './components/Recommend';
-import MarqueeSection from './components/MarqueeSection';
-import FAQSection from './components/FAQSection';
-import NewsSection from './components/NewsSection';
-import IntroAccordion from './components/IntroAccordion';
-import Footer from './components/Footer';
-import LocationFooter from './components/LocationFooter';
+import Header from './components/Main/Header';
+import Landing from './components/Main/Landing';
+import OurSolarSolution from './components/Main/OurSolarSolution';
+import Recommend from './components/Home/Recommend';
+import MarqueeSection from './components/Home/MarqueeSection';
+import FAQSection from './components/Home/FAQSection';
+import NewsSection from './components/Home/NewsSection';
+import IntroAccordion from './components/Main/IntroAccordion';
+import Footer from './components/Main/Footer';
+import LocationFooter from './components/Main/LocationFooter';
 
 // Pages
 import Home from './pages/Home';
 import Commercial from './pages/Commercial';
 import HousingSociety from './pages/HousingSociety';
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from './components/Main/ScrollToTop';
 
 function App() {
   return (
