@@ -1,28 +1,29 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import HeroBg from '../../assets/landing.jpg'; // Update path if needed
+import HeroBg from '../../assets/Hero-Image.png'; // Update path if needed
 
 const HeroSection = () => {
   return (
     <Box
       sx={{
         width: '100%',
-        height: 'calc(100vh - 80px)', // Adjust based on your actual navbar height
-        backgroundImage: `url(${HeroBg})`,
+        height: 'calc(100vh - 80px)', // Adjust based on navbar height
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(${HeroBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        backgroundColor: '#000', // fallback
         display: 'flex',
         alignItems: 'center',
-        paddingLeft: { xs: 4, md: 20 },
-        backgroundColor: '#000', // fallback
+        justifyContent: 'center',
+        px: 2,
       }}
     >
-      <Box sx={{ color: '#ffffff', maxWidth: '600px' }}>
+      <Box sx={{ color: '#ffffff', maxWidth: '800px', textAlign: 'center' }}>
         <Typography
           variant="h3"
           sx={{
-            fontWeight: 700,
+            fontWeight: 1000,
             fontFamily: 'Poppins, sans-serif',
             fontSize: { xs: '2rem', md: '3.5rem' },
             lineHeight: 1.2,

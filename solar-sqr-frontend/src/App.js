@@ -17,12 +17,10 @@ import LocationFooter from './components/Main/LocationFooter';
 import Home from './pages/Home';
 import Commercial from './pages/Commercial';
 import HousingSociety from './pages/HousingSociety';
-import ScrollToTop from './components/Main/ScrollToTop';
 
 function App() {
   return (
     <Router>
-      <ScrollToTop />
       <Header />
 
       <Routes>

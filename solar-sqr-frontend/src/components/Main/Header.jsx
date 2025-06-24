@@ -7,13 +7,13 @@ import Logo from '../../assets/logo.png';
 const Header = () => {
   const navItems = ['Our Offerings', 'Solar Solutions', 'Our Presence', 'Blog', 'More'];
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [solarDropdown, setSolarDropdown] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsAtTop(window.scrollY === 0);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -24,7 +24,12 @@ const Header = () => {
     { label: 'Housing Societies', link: '/housing-society' },
   ];
 
-  if (!isAtTop) return null; // Hide header when not at top
+  const solarOptions = [
+    { label: 'Off-grid Solar', link: '/off-grid-solar' },
+    { label: 'On-grid Solar', link: '/on-grid-solar' },
+  ];
+
+  if (!isAtTop) return null;
 
   return (
     <AppBar position="fixed" color="default" elevation={1}>
@@ -50,7 +55,7 @@ const Header = () => {
           />
         </Link>
 
-        {/* Navigation and CTA */}
+        {/* Navigation + CTA */}
         <Box
           sx={{
             display: 'flex',
@@ -67,86 +72,151 @@ const Header = () => {
               gap: '60px',
             }}
           >
-            {navItems.map((item) =>
-              item === 'Our Offerings' ? (
-                <Box
-                  key={item}
-                  onMouseEnter={() => setOpenDropdown(true)}
-                  onMouseLeave={() => setOpenDropdown(false)}
-                  sx={{
-                    position: 'relative',
-                    fontSize: '20px',
-                    color: '#0B131F',
-                    fontFamily: 'Poppins, sans-serif',
-                    fontWeight: 600,
-                    padding: '4px 6px',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    Our Offerings
-                    <ExpandMoreIcon sx={{ fontSize: 18 }} />
-                  </Box>
-                  {openDropdown && (
-                    <Box
-                      onMouseEnter={() => setOpenDropdown(true)}
-                      onMouseLeave={() => setOpenDropdown(false)}
-                      sx={{
-                        position: 'absolute',
-                        top: '100%',
-                        left: 0,
-                        backgroundColor: 'white',
-                        borderRadius: '12px',
-                        boxShadow: '0px 0px 12px 0px #0000001F',
-                        padding: '10px 8px',
-                        width: '12rem',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        zIndex: 10,
-                        gap: '10px',
-                      }}
-                    >
-                      {offerings.map((option) => (
-                        <Link
-                          key={option.label}
-                          to={option.link}
-                          style={{
-                            backgroundColor: '#F5F8FD',
-                            borderRadius: '8px',
-                            padding: '8px',
-                            color: '#2C3045',
-                            fontFamily: 'Poppins, sans-serif',
-                            fontSize: '17px',
-                            fontWeight: 500,
-                            textDecoration: 'none',
-                            display: 'flex',
-                            alignItems: 'center',
-                          }}
-                        >
-                          {option.label}
-                        </Link>
-                      ))}
+            {navItems.map((item) => {
+              if (item === 'Our Offerings') {
+                return (
+                  <Box
+                    key={item}
+                    onMouseEnter={() => setOpenDropdown(true)}
+                    onMouseLeave={() => setOpenDropdown(false)}
+                    sx={{
+                      position: 'relative',
+                      fontSize: '20px',
+                      color: '#0B131F',
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 600,
+                      padding: '4px 6px',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      Our Offerings
+                      <ExpandMoreIcon sx={{ fontSize: 18 }} />
                     </Box>
-                  )}
-                </Box>
-              ) : (
-                <Box
-                  key={item}
-                  sx={{
-                    fontSize: '20px',
-                    color: '#0B131F',
-                    fontFamily: 'Poppins, sans-serif',
-                    fontWeight: 600,
-                    padding: '4px 6px',
-                    cursor: 'pointer',
-                  }}
-                >
-                  {item}
-                </Box>
-              )
-            )}
+                    {openDropdown && (
+                      <Box
+                        onMouseEnter={() => setOpenDropdown(true)}
+                        onMouseLeave={() => setOpenDropdown(false)}
+                        sx={{
+                          position: 'absolute',
+                          top: '100%',
+                          left: 0,
+                          backgroundColor: 'white',
+                          borderRadius: '12px',
+                          boxShadow: '0px 0px 12px 0px #0000001F',
+                          padding: '10px 8px',
+                          width: '12rem',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          zIndex: 10,
+                          gap: '10px',
+                        }}
+                      >
+                        {offerings.map((option) => (
+                          <Link
+                            key={option.label}
+                            to={option.link}
+                            style={{
+                              backgroundColor: '#F5F8FD',
+                              borderRadius: '8px',
+                              padding: '8px',
+                              color: '#2C3045',
+                              fontFamily: 'Poppins, sans-serif',
+                              fontSize: '17px',
+                              fontWeight: 500,
+                              textDecoration: 'none',
+                            }}
+                          >
+                            {option.label}
+                          </Link>
+                        ))}
+                      </Box>
+                    )}
+                  </Box>
+                );
+              } else if (item === 'Solar Solutions') {
+                return (
+                  <Box
+                    key={item}
+                    onMouseEnter={() => setSolarDropdown(true)}
+                    onMouseLeave={() => setSolarDropdown(false)}
+                    sx={{
+                      position: 'relative',
+                      fontSize: '20px',
+                      color: '#0B131F',
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 600,
+                      padding: '4px 6px',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      Solar Solutions
+                      <ExpandMoreIcon sx={{ fontSize: 18 }} />
+                    </Box>
+                    {solarDropdown && (
+                      <Box
+                        onMouseEnter={() => setSolarDropdown(true)}
+                        onMouseLeave={() => setSolarDropdown(false)}
+                        sx={{
+                          position: 'absolute',
+                          top: '100%',
+                          left: 0,
+                          backgroundColor: 'white',
+                          borderRadius: '12px',
+                          boxShadow: '0px 0px 12px 0px #0000001F',
+                          padding: '10px 8px',
+                          width: '14rem',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          zIndex: 10,
+                          gap: '10px',
+                        }}
+                      >
+                        {solarOptions.map((option) => (
+                          <Link
+                            key={option.label}
+                            to={option.link}
+                            style={{
+                              backgroundColor: '#F5F8FD',
+                              borderRadius: '8px',
+                              padding: '8px',
+                              color: '#2C3045',
+                              fontFamily: 'Poppins, sans-serif',
+                              fontSize: '17px',
+                              fontWeight: 500,
+                              textDecoration: 'none',
+                            }}
+                          >
+                            {option.label}
+                          </Link>
+                        ))}
+                      </Box>
+                    )}
+                  </Box>
+                );
+              } else {
+                return (
+                  <Box
+                    key={item}
+                    sx={{
+                      fontSize: '20px',
+                      color: '#0B131F',
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 600,
+                      padding: '4px 6px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {item}
+                  </Box>
+                );
+              }
+            })}
           </Box>
 
           {/* CTA Button */}

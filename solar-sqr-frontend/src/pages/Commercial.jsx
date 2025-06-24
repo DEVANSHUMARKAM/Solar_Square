@@ -6,12 +6,11 @@ import CommercialStatsSection from "../components/Commercial/CommercialStatsSect
 import CustomerReviewSection from "../components/Main/CustomerReviewSection";
 import Footer from "../components/Main/Footer";
 import LocationFooter from "../components/Main/LocationFooter";
-import Header from "../components/Main/Header";
 
 const Commercial = () => {
   return (
     <>
-      <Header/>
+      {/* <Header/> */}
       <CommercialHero />
       <TestimonialSection />
       <FormCommercial />
