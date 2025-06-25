@@ -17,6 +17,8 @@ import LocationFooter from './components/Main/LocationFooter';
 import Home from './pages/Home';
 import Commercial from './pages/Commercial';
 import HousingSociety from './pages/HousingSociety';
+import Offgridpage from './pages/Offgridpage';
+import Ongridpage from './pages/Ongridpage';
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
         <Route path="/commercial" element={<Commercial />} />
         <Route path="/housing-society" element={<HousingSociety />} />
         <Route path="/go-solar" element={<h1>CTA Page: Go Solar</h1>} />
+        <Route path="/off-grid-solar" element={<Offgridpage/>}/>
+        <Route path="/on-grid-solar" element={<Ongridpage/>}/>
       </Routes>
     </Router>
   );
