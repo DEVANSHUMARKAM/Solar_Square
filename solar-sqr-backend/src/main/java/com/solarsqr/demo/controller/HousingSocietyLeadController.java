@@ -1,12 +1,13 @@
-package com.solarsqr.backend.controller;
+package com.solarsqr.demo.controller;
 
 import com.solarsqr.demo.model.HousingSocietyLead;
 import com.solarsqr.demo.service.HousingSocietyLeadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/housing-society")
+@RequestMapping("/api/housing")  // ✅ Matches frontend
 @CrossOrigin("*")
 public class HousingSocietyLeadController {
 
@@ -14,7 +15,8 @@ public class HousingSocietyLeadController {
     private HousingSocietyLeadService service;
 
     @PostMapping("/submit")
-    public HousingSocietyLead submitLead(@RequestBody HousingSocietyLead lead) {
-        return service.saveLead(lead);
+    public ResponseEntity<String> submitLead(@RequestBody HousingSocietyLead lead) {
+        service.saveLead(lead);
+        return ResponseEntity.ok("Housing society lead submitted successfully");
     }
 }

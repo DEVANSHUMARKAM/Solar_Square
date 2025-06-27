@@ -1,4 +1,3 @@
-// src/components/FormCommercial.jsx
 import React, { useState } from 'react';
 import {
   Box,
@@ -9,6 +8,8 @@ import {
   Checkbox,
   FormControlLabel,
   Link,
+  Snackbar,
+  Alert,
 } from '@mui/material';
 
 const FormCommercial = () => {
@@ -21,6 +22,8 @@ const FormCommercial = () => {
     avgBill: '',
     agree: false,
   });
+
+  const [status, setStatus] = useState({ success: null, message: '' });
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -36,6 +39,34 @@ const FormCommercial = () => {
     formData.whatsapp &&
     formData.city &&
     formData.avgBill;
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/commercial/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus({ success: true, message: 'Form submitted successfully!' });
+        setFormData({
+          name: '',
+          companyName: '',
+          whatsapp: '',
+          city: '',
+          pinCode: '',
+          avgBill: '',
+          agree: false,
+        });
+      } else {
+        setStatus({ success: false, message: 'Submission failed. Please try again.' });
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      setStatus({ success: false, message: 'An error occurred. Try again later.' });
+    }
+  };
 
   return (
     <Box
@@ -53,7 +84,7 @@ const FormCommercial = () => {
         maxWidth="1400px"
         margin="0 auto"
       >
-        {/* LEFT SIDE TEXT */}
+        {/* LEFT TEXT */}
         <Grid item xs={12} md={6}>
           <Typography
             variant="h4"
@@ -78,72 +109,39 @@ const FormCommercial = () => {
           </Typography>
         </Grid>
 
-        {/* RIGHT SIDE FORM */}
+        {/* RIGHT FORM */}
         <Grid item xs={12} md={6}>
           <Box
             sx={{
-              backgroundColor: '#fff',
-              borderRadius: 3,
+              bgcolor: '#fff',
+              borderRadius: 8,
               p: 4,
               width: '100%',
-              maxWidth: 500,
+              maxWidth: 600,
               mx: 'auto',
             }}
           >
-            <TextField
-              fullWidth
-              label="Name *"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              sx={{ mb: 2 }}
-              InputProps={{ style: { borderRadius: '8px' } }}
-            />
-            <TextField
-              fullWidth
-              label="Company Name *"
-              name="companyName"
-              value={formData.companyName}
-              onChange={handleChange}
-              sx={{ mb: 2 }}
-              InputProps={{ style: { borderRadius: '8px' } }}
-            />
-            <TextField
-              fullWidth
-              label="WhatsApp number *"
-              name="whatsapp"
-              value={formData.whatsapp}
-              onChange={handleChange}
-              sx={{ mb: 2 }}
-              InputProps={{ style: { borderRadius: '8px' } }}
-            />
-            <TextField
-              fullWidth
-              label="City *"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-              sx={{ mb: 2 }}
-              InputProps={{ style: { borderRadius: '8px' } }}
-            />
-            <TextField
-              fullWidth
-              label="Company Pin code"
-              name="pinCode"
-              value={formData.pinCode}
-              onChange={handleChange}
-              sx={{ mb: 2 }}
-              InputProps={{ style: { borderRadius: '8px' } }}
-            />
-            <TextField
-              fullWidth
-              label="Average Monthly Bill *"
-              name="avgBill"
-              value={formData.avgBill}
-              onChange={handleChange}
-              sx={{ mb: 2 }}
-              InputProps={{ style: { borderRadius: '8px' } }}
-            />
+            {[
+              { name: 'name', label: 'Name', required: true },
+              { name: 'companyName', label: 'Company Name', required: true },
+              { name: 'whatsapp', label: 'WhatsApp number', required: true },
+              { name: 'city', label: 'City', required: true },
+              { name: 'pinCode', label: 'Company Pin code', required: false },
+              { name: 'avgBill', label: 'Average Monthly Bill', required: true },
+            ].map(({ name, label, required }) => (
+              <Box key={name} sx={{ mb: 2 }}>
+                <Typography sx={{ fontWeight: 900, mb: 0.5 }}>
+                  {label} {required && <span style={{ color: 'red' }}>*</span>}
+                </Typography>
+                <TextField
+                  fullWidth
+                  name={name}
+                  value={formData[name]}
+                  onChange={handleChange}
+                  InputProps={{ style: { borderRadius: '8px' } }}
+                />
+              </Box>
+            ))}
 
             <FormControlLabel
               control={
@@ -169,9 +167,10 @@ const FormCommercial = () => {
               fullWidth
               variant="contained"
               sx={{
+                mt: 3,
                 backgroundColor: '#00D2FF',
                 color: '#fff',
-                fontWeight: 600,
+                fontWeight: 900,
                 textTransform: 'none',
                 fontSize: 16,
                 py: 1.2,
@@ -181,9 +180,24 @@ const FormCommercial = () => {
                 },
               }}
               disabled={!formData.agree}
+              onClick={handleSubmit}
             >
               Submit
             </Button>
+
+            <Snackbar
+              open={status.message !== ''}
+              autoHideDuration={3000}
+              onClose={() => setStatus({ success: null, message: '' })}
+            >
+              <Alert
+                onClose={() => setStatus({ success: null, message: '' })}
+                severity={status.success ? 'success' : 'error'}
+                sx={{ width: '100%' }}
+              >
+                {status.message}
+              </Alert>
+            </Snackbar>
           </Box>
         </Grid>
       </Grid>

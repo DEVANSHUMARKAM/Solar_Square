@@ -9,14 +9,17 @@ import {
   FormControlLabel,
   Link,
   MenuItem,
+  Snackbar,
+  Alert,
 } from '@mui/material';
+import axios from 'axios';
 
 import Slider1 from '../../assets/Seawood-1-min.png';
 import Slider2 from '../../assets/Seawood-2-min.png';
 import Slider3 from '../../assets/Seawood-3-min.png';
 
 const originalSlides = [Slider1, Slider2, Slider3];
-const slides = [...originalSlides, Slider1]; // clone for smooth loop
+const slides = [...originalSlides, Slider1];
 
 const billOptions = ['0 - 50000', '50000 - 1L', '1L+'];
 const designationOptions = [
@@ -34,6 +37,8 @@ const approvalOptions = [
 const HousingHero = () => {
   const [index, setIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState({ success: null, message: '' });
 
   const [form, setForm] = useState({
     fullName: '',
@@ -59,10 +64,40 @@ const HousingHero = () => {
     setForm({ ...form, [field]: e.target.value });
   };
 
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    try {
+      await axios.post('http://localhost:8080/api/housing/submit', {
+        name: form.fullName,
+        societyName: form.societyName,
+        pincode: form.pinCode,
+        whatsapp: form.whatsapp,
+        bill: form.bill,
+        designation: form.designation,
+        approvalStatus: form.approvalStatus,
+      });
+
+      setStatus({ success: true, message: 'Form submitted successfully!' });
+      setForm({
+        fullName: '',
+        societyName: '',
+        pinCode: '',
+        whatsapp: '',
+        bill: '',
+        designation: '',
+        approvalStatus: '',
+        agreed: false,
+      });
+    } catch (err) {
+      console.error('Submission error:', err);
+      setStatus({ success: false, message: 'Submission failed. Please try again.' });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => prev + 1);
-    }, 2500);
+    const interval = setInterval(() => setIndex((prev) => prev + 1), 2500);
     return () => clearInterval(interval);
   }, []);
 
@@ -92,7 +127,7 @@ const HousingHero = () => {
         justifyContent="space-between"
         sx={{ maxWidth: '1300px', mx: 'auto' }}
       >
-        {/* LEFT SIDE */}
+        {/* LEFT SLIDE CONTENT */}
         <Grid item xs={12} md={6}>
           <Typography
             variant="h5"
@@ -171,54 +206,29 @@ const HousingHero = () => {
               mt: { xs: 4, md: 0 },
             }}
           >
-            <Typography sx={{ fontWeight: 800, fontSize: 14, mb: 0.5 }}>
-              Full Name <span style={{ color: 'red' }}>*</span>
-            </Typography>
-            <TextField
-              fullWidth
-              label="Full Name"
-              value={form.fullName}
-              onChange={handleChange('fullName')}
-              sx={{ mb: 2 }}
-            />
-
-            <Typography sx={{ fontWeight: 800, fontSize: 14, mb: 0.5 }}>
-              Name of Housing Society <span style={{ color: 'red' }}>*</span>
-            </Typography>
-            <TextField
-              fullWidth
-              label="Name of Housing Society"
-              value={form.societyName}
-              onChange={handleChange('societyName')}
-              sx={{ mb: 2 }}
-            />
-
-            <Grid container spacing={2}>
-              <Grid item xs={6}>
+            {/* Text Fields */}
+            {[
+              { label: 'Full Name', field: 'fullName' },
+              { label: 'Name of Housing Society', field: 'societyName' },
+              { label: 'Pin Code', field: 'pinCode' },
+              { label: 'WhatsApp number', field: 'whatsapp' },
+            ].map(({ label, field }) => (
+              <Box key={field}>
                 <Typography sx={{ fontWeight: 800, fontSize: 14, mb: 0.5 }}>
-                  Pin code <span style={{ color: 'red' }}>*</span>
+                  {label} <span style={{ color: 'red' }}>*</span>
                 </Typography>
                 <TextField
                   fullWidth
-                  label="Pin Code"
-                  value={form.pinCode}
-                  onChange={handleChange('pinCode')}
+                  label={label}
+                  value={form[field]}
+                  onChange={handleChange(field)}
+                  sx={{ mb: 2 }}
                 />
-              </Grid>
-              <Grid item xs={6}>
-                <Typography sx={{ fontWeight: 800, fontSize: 14, mb: 0.5 }}>
-                  WhatsApp number <span style={{ color: 'red' }}>*</span>
-                </Typography>
-                <TextField
-                  fullWidth
-                  label="WhatsApp number"
-                  value={form.whatsapp}
-                  onChange={handleChange('whatsapp')}
-                />
-              </Grid>
-            </Grid>
+              </Box>
+            ))}
 
-            <Typography sx={{ fontWeight: 800, fontSize: 14, mt: 3, mb: 1 }}>
+            {/* Bill Buttons */}
+            <Typography sx={{ fontWeight: 800, fontSize: 14, mt: 2, mb: 1 }}>
               Monthly Electricity Bill <span style={{ color: 'red' }}>*</span>
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
@@ -246,9 +256,9 @@ const HousingHero = () => {
               ))}
             </Box>
 
+            {/* Designation Buttons */}
             <Typography sx={{ fontWeight: 800, fontSize: 14, mb: 1 }}>
-              What is your designation in Housing Society?{' '}
-              <span style={{ color: 'red' }}>*</span>
+              What is your designation in Housing Society? <span style={{ color: 'red' }}>*</span>
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
               {designationOptions.map((role) => (
@@ -275,6 +285,7 @@ const HousingHero = () => {
               ))}
             </Box>
 
+            {/* Approval Dropdown */}
             <Typography sx={{ fontWeight: 800, fontSize: 14, mb: 1 }}>
               AGM approval status <span style={{ color: 'red' }}>*</span>
             </Typography>
@@ -292,34 +303,31 @@ const HousingHero = () => {
               ))}
             </TextField>
 
+            {/* Checkbox */}
             <FormControlLabel
               control={
                 <Checkbox
                   checked={form.agreed}
-                  onChange={(e) =>
-                    setForm({ ...form, agreed: e.target.checked })
-                  }
+                  onChange={(e) => setForm({ ...form, agreed: e.target.checked })}
                   disabled={!allRequiredFilled}
                 />
               }
               label={
                 <Typography sx={{ fontSize: 14 }}>
                   I agree to SolarSquare’s&nbsp;
-                  <Link href="/terms-of-service" underline="hover">
-                    terms of service
-                  </Link>
+                  <Link href="/terms-of-service" underline="hover">terms of service</Link>
                   &nbsp;and&nbsp;
-                  <Link href="/privacy-policy" underline="hover">
-                    privacy policy
-                  </Link>
+                  <Link href="/privacy-policy" underline="hover">privacy policy</Link>
                 </Typography>
               }
             />
 
+            {/* Submit Button */}
             <Button
               fullWidth
               variant="contained"
-              disabled={!form.agreed}
+              disabled={!form.agreed || submitting}
+              onClick={handleSubmit}
               sx={{
                 mt: 3,
                 backgroundColor: '#00D2FF',
@@ -334,8 +342,23 @@ const HousingHero = () => {
                 },
               }}
             >
-              Submit Details
+              {submitting ? 'Submitting...' : 'Submit Details'}
             </Button>
+
+            {/* Snackbar Notification */}
+            <Snackbar
+              open={status.message !== ''}
+              autoHideDuration={3000}
+              onClose={() => setStatus({ success: null, message: '' })}
+            >
+              <Alert
+                onClose={() => setStatus({ success: null, message: '' })}
+                severity={status.success ? 'success' : 'error'}
+                sx={{ width: '100%' }}
+              >
+                {status.message}
+              </Alert>
+            </Snackbar>
           </Box>
         </Grid>
       </Grid>

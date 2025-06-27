@@ -1,27 +1,65 @@
 package com.solarsqr.demo.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
 
-@Getter
 @Entity
 @Table(name = "housing_society_leads")
 public class HousingSocietyLead {
 
-    // Getters
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
+
     private String societyName;
+
     private String pincode;
+
     private String whatsapp;
+
     private String bill;
+
     private String designation;
+
     private String approvalStatus;
 
-    // Setters
+    // ======== Getters ========
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSocietyName() {
+        return societyName;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public String getWhatsapp() {
+        return whatsapp;
+    }
+
+    public String getBill() {
+        return bill;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public String getApprovalStatus() {
+        return approvalStatus;
+    }
+
+    // ======== Setters ========
+
     public void setId(Long id) {
         this.id = id;
     }

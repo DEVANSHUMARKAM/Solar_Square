@@ -23,7 +23,6 @@ import Ongridpage from './pages/Ongridpage';
 function App() {
   return (
     <Router>
-      <Header />
 
       <Routes>
         {/* Landing Page Route */}
@@ -31,6 +30,8 @@ function App() {
           path="/"
           element={
             <>
+              <Header />
+
               <Landing />
               <OurSolarSolution />
               <Recommend />
@@ -49,8 +50,8 @@ function App() {
         <Route path="/commercial" element={<Commercial />} />
         <Route path="/housing-society" element={<HousingSociety />} />
         <Route path="/go-solar" element={<h1>CTA Page: Go Solar</h1>} />
-        <Route path="/off-grid-solar" element={<Offgridpage/>}/>
-        <Route path="/on-grid-solar" element={<Ongridpage/>}/>
+        <Route path="/off-grid-solar" element={<Offgridpage />} />
+        <Route path="/on-grid-solar" element={<Ongridpage />} />
       </Routes>
     </Router>
   );
