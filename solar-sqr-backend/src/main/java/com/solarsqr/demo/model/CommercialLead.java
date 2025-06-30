@@ -8,16 +8,21 @@ import lombok.Getter;
 @Table(name = "commercial_leads")
 public class CommercialLead {
 
-    // Getters
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
+
     private String companyName;
+
     private String whatsapp;
+
     private String city;
+
     private String pinCode;
+
+    @Column(name = "avg_monthly_bill") // 👈 This ensures correct mapping
     private String avgBill;
 
     // Setters
@@ -48,4 +53,7 @@ public class CommercialLead {
     public void setAvgBill(String avgBill) {
         this.avgBill = avgBill;
     }
+
+    // Getters (optional if you use Lombok's @Getter)
 }
+
