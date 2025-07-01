@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/residential")
 @CrossOrigin(origins = "*") // Allow frontend to connect
@@ -19,4 +21,10 @@ public class ResidentialLeadController {
         service.saveLead(lead);
         return ResponseEntity.ok("Residential lead saved successfully.");
     }
+
+    @GetMapping("/all")
+    public List<ResidentialLead> getAllLeads() {
+        return service.getAllLeads();
+    }
+
 }

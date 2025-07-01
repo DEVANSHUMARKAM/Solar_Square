@@ -16,7 +16,7 @@ const Leads = () => {
 
   const fetchHousingLeads = async () => {
     try {
-      const res = await axios.get('http://localhost:8080/api/housing-leads');
+      const res = await axios.get('http://localhost:8080/api/housing/all');
       setHousingLeads(res.data);
     } catch (err) {
       console.error('Error fetching housing leads:', err);
@@ -25,7 +25,7 @@ const Leads = () => {
 
   const fetchCommercialLeads = async () => {
     try {
-      const res = await axios.get('http://localhost:8080/api/commercial-leads');
+      const res = await axios.get('http://localhost:8080/api/commercial/all');
       setCommercialLeads(res.data);
     } catch (err) {
       console.error('Error fetching commercial leads:', err);
@@ -34,7 +34,7 @@ const Leads = () => {
 
   const fetchResidentialLeads = async () => {
     try {
-      const res = await axios.get('http://localhost:8080/api/residential-leads');
+      const res = await axios.get('http://localhost:8080/api/residential/all');
       setResidentialLeads(res.data);
     } catch (err) {
       console.error('Error fetching residential leads:', err);

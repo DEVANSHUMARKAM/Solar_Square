@@ -5,6 +5,8 @@ import com.solarsqr.demo.repository.CommercialLeadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CommercialLeadService {
 
@@ -14,4 +16,9 @@ public class CommercialLeadService {
     public CommercialLead saveLead(CommercialLead lead) {
         return repository.save(lead);
     }
+
+    public List<CommercialLead> getAllLeads() {
+        return repository.findAll();
+    }
+
 }
