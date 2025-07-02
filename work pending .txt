@@ -6,4 +6,5 @@ work pending:
 5. More 
 6. sign up for free electricity button 
 7. customer review section 
-8. 
+8. Admin page authentication (/route)
+9. 
