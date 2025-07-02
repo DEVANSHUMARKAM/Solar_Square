@@ -82,7 +82,7 @@ const Leads = () => {
           { field: 'whatsapp', headerName: 'WhatsApp', width: 150 },
           { field: 'city', headerName: 'City', width: 130 },
           { field: 'pinCode', headerName: 'Pin Code', width: 100 },
-          { field: 'avgMonthlyBill', headerName: 'Avg Monthly Bill', width: 150 },
+          { field: 'avgBill', headerName: 'Avg Monthly Bill', width: 150 },
         ]}
         pageSize={5}
         getRowId={(row) => row.id}

@@ -1,105 +1,64 @@
-import React from 'react';
-import { Box, Grid, Paper, Typography } from '@mui/material';
-import InsightsIcon from '@mui/icons-material/Insights';
-import PendingActionsIcon from '@mui/icons-material/PendingActions';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import React, { useEffect, useState } from 'react';
+import { Box, Grid } from '@mui/material';
+import StatCard from '../components/Dashboard/StatCard';
+import GroupIcon from '@mui/icons-material/Group';
+import BusinessIcon from '@mui/icons-material/Business';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
+import HouseIcon from '@mui/icons-material/House';
+import axios from 'axios';
 
 const Dashboard = () => {
+  const [counts, setCounts] = useState({
+    total: 0,
+    commercial: 0,
+    housing: 0,
+    residential: 0
+  });
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/api/stats/counts')
+      .then(res => {
+        setCounts(res.data);
+      })
+      .catch(err => {
+        console.error('Failed to fetch counts:', err);
+      });
+  }, []);
+
   return (
-    <Box p={3}>
-      {/* Header / greeting */}
-      <Typography variant="h4" fontWeight="bold" gutterBottom>
-        Dashboard
-      </Typography>
-      <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-        Good morning, Admin!
-      </Typography>
-
-      {/* Stats cards */}
+    <Box sx={{ p: 3 }}>
       <Grid container spacing={3}>
-        {/* Total Installations */}
         <Grid item xs={12} sm={6} md={3}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              bgcolor: '#f5f5f5',
-              borderRadius: 2,
-            }}
-            elevation={3}
-          >
-            <InsightsIcon sx={{ fontSize: 40, color: '#1976d2' }} />
-            <Typography variant="h5" fontWeight="bold">
-              120
-            </Typography>
-            <Typography color="text.secondary">Total Installations</Typography>
-          </Paper>
+          <StatCard 
+            icon={<GroupIcon fontSize="inherit" />} 
+            label="Total Leads" 
+            count={counts.total} 
+            color="#1976d2" 
+          />
         </Grid>
-
-        {/* Pending Installations */}
         <Grid item xs={12} sm={6} md={3}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              bgcolor: '#f5f5f5',
-              borderRadius: 2,
-            }}
-            elevation={3}
-          >
-            <PendingActionsIcon sx={{ fontSize: 40, color: '#ffa000' }} />
-            <Typography variant="h5" fontWeight="bold">
-              15
-            </Typography>
-            <Typography color="text.secondary">Pending Installations</Typography>
-          </Paper>
+          <StatCard 
+            icon={<HomeWorkIcon fontSize="inherit" />} 
+            label="Housing Leads" 
+            count={counts.housing} 
+            color="#f57c00" 
+          />
         </Grid>
-
-        {/* Total Leads */}
         <Grid item xs={12} sm={6} md={3}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              bgcolor: '#f5f5f5',
-              borderRadius: 2,
-            }}
-            elevation={3}
-          >
-            <GroupAddIcon sx={{ fontSize: 40, color: '#388e3c' }} />
-            <Typography variant="h5" fontWeight="bold">
-              350
-            </Typography>
-            <Typography color="text.secondary">Total Leads</Typography>
-          </Paper>
+          <StatCard 
+            icon={<BusinessIcon fontSize="inherit" />} 
+            label="Commercial Leads" 
+            count={counts.commercial} 
+            color="#388e3c" 
+          />
         </Grid>
-
-        {/* Revenue this month */}
         <Grid item xs={12} sm={6} md={3}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              bgcolor: '#f5f5f5',
-              borderRadius: 2,
-            }}
-            elevation={3}
-          >
-            <MonetizationOnIcon sx={{ fontSize: 40, color: '#2e7d32' }} />
-            <Typography variant="h5" fontWeight="bold">
-              ₹4,50,000
-            </Typography>
-            <Typography color="text.secondary">Revenue this month</Typography>
-          </Paper>
+          <StatCard 
+            icon={<HouseIcon fontSize="inherit" />} 
+            label="Residential Leads" 
+            count={counts.residential} 
+            color="#d32f2f" 
+          />
         </Grid>
       </Grid>
     </Box>
