@@ -1,3 +1,5 @@
+//Off grid home page
+
 import OffGridIntroSection from "../components/Offgrid/OffGridIntroSection";
 import OffGridFormSection from "../components/Offgrid/OffGridFormSection";
 import Footer from "../components/Main/Footer";

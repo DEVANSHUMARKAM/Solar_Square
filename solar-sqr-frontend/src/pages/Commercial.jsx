@@ -17,7 +17,7 @@ const Commercial = () => {
       <FormCommercial />
       <InstallationExperience />
       <CommercialStatsSection />
-      < CustomerReviewSection/>
+      <CustomerReviewSection/>
 
       < Footer />
       < LocationFooter />

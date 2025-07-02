@@ -1,4 +1,5 @@
-import React from 'react';
+//Homage page landing
+
 import HomeBannerSlider from '../components/Home/HomeBannerSlider';
 import ConsultationSection from '../components/Home/ConsultationSection';
 import NewsSection from '../components/Home/NewsSection';

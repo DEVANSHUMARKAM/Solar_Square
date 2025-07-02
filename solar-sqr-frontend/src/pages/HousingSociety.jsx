@@ -1,3 +1,5 @@
+//Housing society page
+
 import HousingHero from "../components/HousingSociety/HousingHero";
 import WhyChooseUsSection from "../components/HousingSociety/WhyChooseUsSection";
 import IndiaPresenceSection from "../components/HousingSociety/IndiaPresenceSection";

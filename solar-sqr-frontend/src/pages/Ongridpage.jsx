@@ -1,3 +1,5 @@
+//On grid home page 
+
 import OnGridIntroSection from "../components/Ongrid/OnGridIntroSection";
 import OnGridFormSection from "../components/Ongrid/OnGridFormSection";
 import Footer from "../components/Main/Footer";
