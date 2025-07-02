@@ -1,4 +1,5 @@
-import React from 'react';
+//Footer of the website
+
 import { Box, Grid, Typography, Link, IconButton, Container } from '@mui/material';
 import { Facebook, Twitter, LinkedIn, Instagram } from '@mui/icons-material';
 import WhiteLogo from '../../assets/brand-logo-white.png';
@@ -21,7 +22,6 @@ const Footer = () => {
         }}
       >
         <Grid container spacing={6}>
-          {/* Left Column */}
           <Grid item xs={12} md={4}>
             <Box sx={{ mb: 2 }}>
               <img src={WhiteLogo} alt="SolarSquare Logo" style={{ height: 100 }} />
@@ -44,7 +44,6 @@ const Footer = () => {
             </Box>
           </Grid>
 
-          {/* Right Columns */}
           <Grid item xs={12} md={8}>
             <Box
               sx={{
@@ -55,7 +54,6 @@ const Footer = () => {
                 gap: 4,
               }}
             >
-              {/* Column 1 */}
               <Box>
                 <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
                   Our Solutions
@@ -67,7 +65,6 @@ const Footer = () => {
                 </Box>
               </Box>
 
-              {/* Column 2 */}
               <Box>
                 <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
                   Quick Links
@@ -79,10 +76,8 @@ const Footer = () => {
                 </Box>
               </Box>
 
-              {/* Column 3 */}
               <Box>
                 <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
-                  {/* Empty title space */}
                   &nbsp;
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -93,7 +88,6 @@ const Footer = () => {
               </Box>
             </Box>
 
-            {/* Address Below 3 Columns */}
             <Box>
               <Typography variant="h6" sx={{ mb: 1, fontWeight: 700 }}>
                 Address
@@ -109,13 +103,6 @@ const Footer = () => {
             </Box>
           </Grid>
         </Grid>
-
-        {/* Bottom Copyright */}
-        {/* <Box sx={{ borderTop: '1px solid #ffffff33', mt: 4, pt: 3, textAlign: 'center' }}>
-          <Typography variant="body2" sx={{ fontFamily: 'Poppins, sans-serif' }}>
-            © 2025 SolarSquare Energy Pvt. Ltd., All rights reserved.
-          </Typography>
-        </Box> */}
       </Container>
     </Box>
   );

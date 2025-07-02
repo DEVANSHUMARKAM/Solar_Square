@@ -1,18 +1,19 @@
-import React from 'react';
+//Landing main page
+
 import { Box, Typography } from '@mui/material';
-import HeroBg from '../../assets/Hero-Image.png'; // Update path if needed
+import HeroBg from '../../assets/Hero-Image.png'; 
 
 const HeroSection = () => {
   return (
     <Box
       sx={{
         width: '100%',
-        height: 'calc(100vh - 80px)', // Adjust based on navbar height
+        height: 'calc(100vh - 80px)',
         backgroundImage: `linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(${HeroBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundColor: '#000', // fallback
+        backgroundColor: '#000', 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

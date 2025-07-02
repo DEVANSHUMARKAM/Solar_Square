@@ -1,3 +1,5 @@
+//Reviews of customers
+
 import React, { useState } from 'react';
 import {
   Box,
@@ -8,7 +10,6 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-// Images
 import ReviewImg1 from '../../assets/cm-carousel-1.png';
 import ReviewImg2 from '../../assets/cm-carousel-2.png';
 
@@ -35,7 +36,6 @@ const CommercialTestimonials = () => {
   
     return (
       <Box sx={{ py: 10, px: 2, backgroundColor: '#f5f5f5' }}>
-        {/* Heading */}
         <Typography
           variant="h4"
           align="center"
@@ -49,7 +49,6 @@ const CommercialTestimonials = () => {
           Exceptional quality. End-to-end service. Delighted customers
         </Typography>
   
-        {/* Testimonial Cards */}
         <Grid container spacing={4} justifyContent="center" alignItems="stretch">
           {testimonials.map((item, index) => (
             <Grid item xs={12} md={6} key={index}>
@@ -64,7 +63,6 @@ const CommercialTestimonials = () => {
                   bgcolor: '#fff',
                 }}
               >
-                {/* Left Image */}
                 <Box
                   component="img"
                   src={item.img}
@@ -76,7 +74,6 @@ const CommercialTestimonials = () => {
                   }}
                 />
   
-                {/* Right Review */}
                 <Box
                   sx={{
                     background: item.gradient,
@@ -113,7 +110,6 @@ const CommercialTestimonials = () => {
           ))}
         </Grid>
   
-        {/* Read More Expand */}
         <Box sx={{ mt: 6, textAlign: 'center' }}>
           <Button
             endIcon={<ExpandMoreIcon />}

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import HomeImg from '../../assets/Home.jpg';
 import HousingImg from '../../assets/Category-housing.jpg';
 import CommercialImg from '../../assets/Category-commer.jpg';
 
 const data = [
-  { title: 'Homes', img: HomeImg },
-  { title: 'Housing societies', img: HousingImg },
-  { title: 'Commercial', img: CommercialImg },
+  { title: 'Homes', img: HomeImg, link: '/homes' },
+  { title: 'Housing Societies', img: HousingImg, link: '/housing-society' },
+  { title: 'Commercial', img: CommercialImg, link: '/commercial' },
 ];
 
 const OurSolarSolution = () => {
@@ -29,39 +30,44 @@ const OurSolarSolution = () => {
           fontFamily: 'Poppins, sans-serif',
           mb: 6,
           color: '#ffffff',
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
-        Our Solar Solution
+        Our Solar Solutions
       </Typography>
 
       <Box
         sx={{
-          display: 'flex',
+          display: { xs: 'flex', md: 'flex' },
+          flexDirection: { xs: 'column', md: 'row' },
           gap: 3,
-          height: '800px',
-          transition: 'all 0.4s ease-in-out',
-          overflow: 'hidden', // ✅ Prevent jumpiness
+          height: { xs: 'auto', md: '800px' },
+          overflow: 'hidden',
         }}
       >
         {data.map((item, index) => {
-          let flexValue = hoveredIndex === null && index === 0 ? 2 : 1;
+          // On desktop: use hover effect
+          let flexValue = 1;
+          if (hoveredIndex === null && index === 0) flexValue = 2;
           if (hoveredIndex === index) flexValue = 2;
 
           return (
             <Box
               key={index}
+              component={Link}
+              to={item.link}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               sx={{
-                flex: flexValue,
-                minWidth: 0, // ✅ Smooth resize
-                borderRadius: '32px',
-                overflow: 'hidden',
-                boxShadow: 3,
-                transition: 'flex 0.5s ease-in-out',
+                flex: { xs: 'unset', md: flexValue },
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
+                borderRadius: '32px',
+                overflow: 'hidden',
+                boxShadow: 3,
+                textDecoration: 'none', // remove underline
+                transition: { md: 'flex 0.5s ease-in-out' },
               }}
             >
               <Box
@@ -70,10 +76,8 @@ const OurSolarSolution = () => {
                 alt={item.title}
                 sx={{
                   width: '100%',
-                  height: '100%',
+                  height: { xs: '200px', md: '100%' },
                   objectFit: 'cover',
-                  // ✅ Removed transform: scale
-                  transition: 'all 0.5s ease-in-out',
                 }}
               />
               <Typography

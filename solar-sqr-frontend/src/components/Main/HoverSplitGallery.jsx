@@ -1,3 +1,5 @@
+//Types of areas where service available
+
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
 

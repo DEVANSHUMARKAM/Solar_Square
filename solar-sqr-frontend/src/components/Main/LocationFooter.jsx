@@ -1,4 +1,5 @@
-import React from 'react';
+//Location footer details
+
 import { Box, Container, Typography, Link } from '@mui/material';
 
 const locations = [
@@ -95,7 +96,6 @@ const LocationFooter = () => {
           ))}
         </Box>
 
-        {/* Bottom Row */}
         <Box
           sx={{
             display: 'flex',
@@ -107,7 +107,6 @@ const LocationFooter = () => {
             flexWrap: 'wrap',
           }}
         >
-          {/* Made in India text */}
           <Typography
             sx={{
               fontFamily: 'Poppins, sans-serif',
@@ -118,7 +117,6 @@ const LocationFooter = () => {
             Proudly made in India ❤️
           </Typography>
 
-          {/* Legal links */}
           <Box
             sx={{
               display: 'flex',

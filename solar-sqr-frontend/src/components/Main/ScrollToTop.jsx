@@ -1,4 +1,5 @@
-// src/components/ScrollToTop.jsx
+//Scroll to top
+
 import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
