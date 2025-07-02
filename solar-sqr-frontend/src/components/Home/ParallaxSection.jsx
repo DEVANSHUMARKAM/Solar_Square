@@ -1,6 +1,7 @@
-import React from 'react';
+//parallax section of this page 
+
 import { Box } from '@mui/material';
-import ParallaxImage from '../../assets/parallax.jpg'; // Replace with your actual image
+import ParallaxImage from '../../assets/parallax.jpg'; 
 
 const ParallaxSection = () => {
   return (

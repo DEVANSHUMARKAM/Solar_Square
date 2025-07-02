@@ -1,13 +1,12 @@
-import React from 'react';
+//landing page of home page
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { Box, Typography, Button } from '@mui/material';
 
-// Swiper styles
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
-// Import images
 import slider1 from '../../assets/slider1.jpg';
 import slider2 from '../../assets/slider2.jpg';
 import slider3 from '../../assets/slider3.jpg';

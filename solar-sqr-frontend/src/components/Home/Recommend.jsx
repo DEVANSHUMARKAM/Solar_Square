@@ -1,3 +1,5 @@
+//recommendations of several customers
+
 import React, { useEffect, useState, useRef } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 
@@ -20,7 +22,6 @@ const reviews = [
     location: 'Pune',
     system: 'Housing society setup'
   },
-  // Add more reviews...
 ];
 
 const TestimonialSection = () => {

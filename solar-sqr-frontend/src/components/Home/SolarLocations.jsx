@@ -1,10 +1,9 @@
-// src/components/SolarLocations.jsx
-import React from 'react';
-import { Box, Typography, Grid, Paper } from '@mui/material';
-import MapImg from '../../assets/india-map.png'; // Replace this with actual map
-import BgGrid from '../../assets/india-map-bg.png'; // Background image for whole section
+//Details about their service present in 
 
-// Icons for each state
+import { Box, Typography, Grid, Paper } from '@mui/material';
+import MapImg from '../../assets/india-map.png'; 
+import BgGrid from '../../assets/india-map-bg.png'; 
+
 import IconGujarat from '../../assets/Gujrat.png';
 import IconMaharashtra from '../../assets/Maharashtra.png';
 import IconMP from '../../assets/MP.png';

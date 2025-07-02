@@ -1,4 +1,5 @@
-import React from 'react';
+//Avalibility of their own guide book
+
 import {
   Box,
   Grid,
@@ -10,7 +11,7 @@ import {
   ListItemText,
 } from '@mui/material';
 import SquareIcon from '@mui/icons-material/Square';
-import GuideImage from '../../assets/handbook.png'; // Image must have transparent BG
+import GuideImage from '../../assets/handbook.png'; 
 
 const guidePoints = [
   'Best rooftop system for your home',

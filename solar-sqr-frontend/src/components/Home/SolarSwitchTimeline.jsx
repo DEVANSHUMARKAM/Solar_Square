@@ -1,6 +1,3 @@
-// src/components/SolarSwitchTimeline.jsx
-
-import React from 'react';
 import {
   Box,
   Typography,
@@ -100,10 +97,10 @@ const SolarSwitchTimeline = () => {
             position: 'absolute',
             top: 0,
             bottom: 0,
-            left: '50%',
+            left: isMobile ? '30px' : '50%',
             width: '4px',
             backgroundColor: '#ffffff80',
-            transform: 'translateX(-50%)',
+            transform: isMobile ? 'none' : 'translateX(-50%)',
           },
         }}
       >
@@ -120,13 +117,12 @@ const SolarSwitchTimeline = () => {
               }}
               justifyContent="center"
             >
-              {/* Dot on the vertical line */}
               <Box
                 sx={{
                   position: 'absolute',
-                  top: '18px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
+                  top: isMobile ? '0' : '18px',
+                  left: isMobile ? '22px' : '50%',
+                  transform: isMobile ? 'none' : 'translateX(-50%)',
                   width: 16,
                   height: 16,
                   backgroundColor: '#00d2ff',
@@ -135,42 +131,22 @@ const SolarSwitchTimeline = () => {
                 }}
               />
 
-              {/* Content near center */}
-              <Grid
-                item
-                xs={12}
-                md={5.5}
-                sx={{
-                  order: isMobile ? 2 : isLeft ? 1 : 3,
-                  pl: isLeft
-                    ? 0
-                    : index === 1 || index === 3 || index === 5
-                      ? '630px'
-                      : 4,
-                  pr: isLeft
-                    ? index === 0 || index === 2 || index === 4 || index === 6
-                      ? '630px'
-                      : 4
-                    : 0,
-                  textAlign: isLeft ? 'right' : 'left',
-                }}
-              >
-
-                <Box>
+              {isMobile ? (
+                <Grid item xs={12} sx={{ ml: 6 }}>
                   <Box
                     component="img"
                     src={step.icon}
                     alt={step.title}
-                    sx={{ width: 80, mb: 2 }}
+                    sx={{ width: 70, mb: 1 }}
                   />
                   <Typography
                     variant="h6"
                     sx={{
-                      fontWeight: 900,
+                      fontWeight: 700,
                       color: '#fff',
-                      fontFamily: 'Poppins-Regular',
-                      mb: 2,
-                      wordWrap: 'break-word',
+                      fontFamily: 'Poppins',
+                      mb: 1,
+                      fontSize: 18,
                     }}
                   >
                     {step.title}
@@ -178,8 +154,8 @@ const SolarSwitchTimeline = () => {
                   <Typography
                     sx={{
                       color: '#ccc',
-                      fontSize: 20,
-                      fontFamily: 'Poppins-Regular',
+                      fontSize: 16,
+                      fontFamily: 'Poppins',
                       mb: step.button ? 2 : 0,
                     }}
                   >
@@ -197,20 +173,92 @@ const SolarSwitchTimeline = () => {
                         textTransform: 'none',
                         px: 3,
                         py: 1,
+                        fontSize: 14,
                         fontFamily: 'Poppins',
-                        '&:hover': {
-                          backgroundColor: '#00b8e0',
-                        },
+                        '&:hover': { backgroundColor: '#00b8e0' },
                       }}
                     >
                       {step.button}
                     </Button>
                   )}
-                </Box>
-              </Grid>
+                </Grid>
+              ) : (
+                <>
+                  <Grid
+                    item
+                    xs={12}
+                    md={5.5}
+                    sx={{
+                      order: isLeft ? 1 : 3,
+                      pl: isLeft
+                        ? 0
+                        : index === 1 || index === 3 || index === 5
+                          ? '630px'
+                          : 4,
+                      pr: isLeft
+                        ? index === 0 || index === 2 || index === 4 || index === 6
+                          ? '630px'
+                          : 4
+                        : 0,
+                      textAlign: isLeft ? 'right' : 'left',
+                    }}
+                  >
+                    <Box>
+                      <Box
+                        component="img"
+                        src={step.icon}
+                        alt={step.title}
+                        sx={{ width: 80, mb: 2 }}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          fontWeight: 900,
+                          color: '#fff',
+                          fontFamily: 'Poppins-Regular',
+                          mb: 2,
+                          wordWrap: 'break-word',
+                        }}
+                      >
+                        {step.title}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: '#ccc',
+                          fontSize: 20,
+                          fontFamily: 'Poppins-Regular',
+                          mb: step.button ? 2 : 0,
+                        }}
+                      >
+                        {step.description}
+                      </Typography>
+                      {step.button && (
+                        <Button
+                          variant="contained"
+                          sx={{
+                            mt: 2,
+                            backgroundColor: '#00d2ff',
+                            color: '#000',
+                            fontWeight: 600,
+                            borderRadius: '8px',
+                            textTransform: 'none',
+                            px: 3,
+                            py: 1,
+                            fontFamily: 'Poppins',
+                            '&:hover': {
+                              backgroundColor: '#00b8e0',
+                            },
+                          }}
+                        >
+                          {step.button}
+                        </Button>
+                      )}
+                    </Box>
+                  </Grid>
 
-              {/* Spacer to balance alignment */}
-              <Grid item xs={12} md={5.5} order={isMobile ? 3 : isLeft ? 3 : 1} />
+                  <Grid item xs={12} md={5.5} order={isLeft ? 3 : 1} />
+                </>
+              )}
             </Grid>
           );
         })}

@@ -1,3 +1,5 @@
+//FAQ section of their website
+
 import React, { useState } from 'react';
 import {
   Box,
@@ -9,7 +11,7 @@ import {
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import FaqGuy from '../../assets/FAQ_new.png'; // Make sure this path is correct
+import FaqGuy from '../../assets/FAQ_new.png'; 
 
 const faqData = {
   general: [
@@ -132,7 +134,6 @@ const FAQSection = () => {
           alignItems: 'flex-start',
         }}
       >
-        {/* Left: Tabs + Accordions */}
         <Box sx={{ flex: 1, minWidth: 0 }}>
           {renderTabs()}
           <Box sx={{ minHeight: 400 }}>
@@ -181,7 +182,6 @@ const FAQSection = () => {
           </Box>
         </Box>
 
-        {/* Right: Fixed Image */}
         <Box
           sx={{
             flexShrink: 0,

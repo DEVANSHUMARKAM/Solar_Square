@@ -1,3 +1,5 @@
+//enquiry form of home page 
+
 import React, { useState } from 'react';
 import {
   Box,

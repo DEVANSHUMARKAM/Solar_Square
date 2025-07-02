@@ -1,4 +1,5 @@
-import React from 'react';
+//news about their own company 
+
 import Slider from 'react-slick';
 import { Box, Typography, Link } from '@mui/material';
 import 'slick-carousel/slick/slick.css';

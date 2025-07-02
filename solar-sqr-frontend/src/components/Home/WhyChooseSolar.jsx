@@ -1,4 +1,5 @@
-// src/components/WhyChooseSolar.jsx
+//advantages of solar 
+
 import React from 'react';
 import { Box, Typography, Grid, Button } from '@mui/material';
 import { Link } from 'react-router-dom';

@@ -1,6 +1,7 @@
-import React from 'react';
+//The about section of their self
+
 import { Box, Typography, Grid } from '@mui/material';
-import placeholderImage from '../../assets/team-collage.png'; // Replace with your team image
+import placeholderImage from '../../assets/team-collage.png'; 
 
 const highlights = [
   {
@@ -24,7 +25,6 @@ const highlights = [
 const WhoWeAreSection = () => {
   return (
     <Box sx={{ px: { xs: 2, md: 6 }, py: 7, textAlign: 'center' }}>
-      {/* Heading */}
       <Typography
         variant="h3"
         sx={{
@@ -36,7 +36,6 @@ const WhoWeAreSection = () => {
         Who are we?
       </Typography>
 
-      {/* Image */}
       <Box
         component="img"
         src={placeholderImage}
@@ -49,7 +48,6 @@ const WhoWeAreSection = () => {
         }}
       />
 
-      {/* Subheading */}
       <Typography
         variant="body1"
         sx={{
@@ -63,7 +61,6 @@ const WhoWeAreSection = () => {
         We are a group of 1000+ engineers, MBAs, scientists, creative thinkers driven by the single vision of accelerating adoption of solar in homes.
       </Typography>
 
-      {/* Highlight Cards */}
       <Grid container spacing={3} justifyContent="center">
         {highlights.map((item, idx) => (
           <Grid item xs={12} sm={6} md={3} key={idx}>

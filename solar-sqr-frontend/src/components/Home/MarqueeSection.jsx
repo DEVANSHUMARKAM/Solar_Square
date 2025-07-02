@@ -1,3 +1,5 @@
+//brand trusted by severla companies
+
 import React, { useRef, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 
@@ -35,7 +37,7 @@ const MarqueeSection = () => {
 
     const scroll = () => {
       if (!pauseRef.current) {
-        offset += 0.5; // smoothness/speed
+        offset += 0.5; 
         track.style.transform = `translateX(${-offset}px)`;
         if (offset >= track.scrollWidth / 3) offset = 0;
       }
@@ -81,12 +83,11 @@ const MarqueeSection = () => {
           ref={trackRef}
           sx={{
             display: 'flex',
-            gap: 15, // ✅ Gaps between logos
+            gap: 15, 
             whiteSpace: 'nowrap',
             willChange: 'transform',
           }}
         >
-          {/* ✅ Repeat 3 times for infinite effect */}
           {[...companies, ...companies, ...companies].map((company, index) => (
             <Box
               key={index}
