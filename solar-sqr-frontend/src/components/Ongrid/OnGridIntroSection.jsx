@@ -1,13 +1,14 @@
-import React from 'react';
+//On grid introduction
+
 import { Box, Typography } from '@mui/material';
-import OffGridBg from '../../assets/cropedhero.png'; // update path if needed
+import OffGridBg from '../../assets/cropedhero.png'; 
 
 const OnGridIntroSection = () => {
   return (
     <Box
       sx={{
         width: '100%',
-        height: 'calc(50vh - 5rem)', // updated height
+        height: 'calc(50vh - 5rem)', 
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${OffGridBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

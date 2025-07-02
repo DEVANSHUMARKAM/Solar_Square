@@ -1,3 +1,5 @@
+//Form pages of On grid
+
 import React, { useState } from 'react';
 import {
     Box,
@@ -92,7 +94,6 @@ const OnGridFormSection = () => {
     return (
         <Box sx={{ px: { xs: 2, md: 8 }, py: 8 }}>
             <Grid container spacing={6}>
-                {/* Left Content */}
                 <Grid item xs={12} md={7}>
                     <Typography
                         variant="h5"
@@ -106,12 +107,10 @@ const OnGridFormSection = () => {
                         About SolarSquare
                     </Typography>
                     <Typography sx={{ mb: 2, fontSize: 16 }}>
-                        {/* Add your full descriptive paragraph here */}
                         SolarSquare is born out of the passion to de-escalate pollution and escalate the adoption of mass solar...
                     </Typography>
                 </Grid>
 
-                {/* Right Form */}
                 <Grid item xs={12} md={5}>
                     <Box
                         sx={{
@@ -119,15 +118,15 @@ const OnGridFormSection = () => {
                             borderRadius: 8,
                             boxShadow: 8,
                             bgcolor: '#fff',
-                            minHeight: '620px',              // Fixed height to prevent jumping
-                            maxWidth: '600px',               // Fix width
-                            marginX: 'auto',                 // Center it horizontally if needed
-                            transition: 'all 0.3s ease-in-out', // Smooth animation
+                            minHeight: '620px',             
+                            maxWidth: '600px',               
+                            marginX: 'auto',                 
+                            transition: 'all 0.3s ease-in-out',
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'space-between',
                             '@media (min-width: 768px)': {
-                                pt: '3rem',                    // Padding top for md screens
+                                pt: '3rem',                   
                             },
                         }}
                     >
@@ -149,7 +148,6 @@ const OnGridFormSection = () => {
                             ))}
                         </Box>
 
-                        {/* Residential */}
                         {formType === 'Residential' && (
                             <>
                                 <TextField
@@ -219,7 +217,6 @@ const OnGridFormSection = () => {
                             </>
                         )}
 
-                        {/* Housing Society */}
                         {formType === 'Housing Society' && (
                             <>
                                 <TextField
@@ -278,9 +275,9 @@ const OnGridFormSection = () => {
                                                 </span>
                                             } sx={{
                                                 mb: 2,
-                                                width: '100%',          // Or you can try fixed width like '300px'
+                                                width: '100%',          
                                                 '& .MuiSelect-select': {
-                                                    minWidth: '200px',    // Controls the select display area
+                                                    minWidth: '200px',    
                                                 },
                                             }}
                                         >
@@ -331,7 +328,6 @@ const OnGridFormSection = () => {
                             </>
                         )}
 
-                        {/* Commercial */}
                         {formType === 'Commercial' && (
                             <>
                                 <TextField
@@ -411,7 +407,6 @@ const OnGridFormSection = () => {
                             </>
                         )}
 
-                        {/* Checkbox + Submit */}
                         <FormControlLabel
                             control={
                                 <Checkbox
