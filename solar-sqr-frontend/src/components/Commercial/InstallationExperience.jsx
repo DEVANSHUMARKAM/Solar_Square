@@ -1,5 +1,5 @@
-// src/components/InstallationExperienceSection.jsx
-import React from 'react';
+//Installation explained in commercial page
+
 import { Box, Typography, Grid } from '@mui/material';
 import Image1 from '../../assets/hassle-free-new-1.png';
 import Image2 from '../../assets/hassle-free-new-2.png';
@@ -27,7 +27,7 @@ const InstallationExperience = () => {
             <Grid item key={idx}>
               <Box
                 sx={{
-                  width: { xs: '100%', md: '700px' }, // width increased
+                  width: { xs: '100%', md: '700px' }, 
                   height: '30rem',
                   background: `url(${item.img})`,
                   backgroundPosition: '50%',

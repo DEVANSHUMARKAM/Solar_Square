@@ -1,5 +1,4 @@
-// src/components/TestimonialSection.jsx
-import React from 'react';
+//compliment from a reputated brand
 import { Box, Typography, Grid, Avatar } from '@mui/material';
 
 // Import images
