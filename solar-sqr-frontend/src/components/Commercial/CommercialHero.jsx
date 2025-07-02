@@ -1,4 +1,5 @@
-import React from 'react';
+//landing page of commercial page
+
 import { Box, Typography, Button } from '@mui/material';
 import BgImage from '../../assets/commercial-banner.png'; 
 
