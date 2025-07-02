@@ -1,7 +1,7 @@
-import React from 'react';
+//about safety 
+
 import { Box, Typography, Grid } from '@mui/material';
 
-// Replace with your actual image imports
 import SafetyIcon1 from '../../assets/image_iso.png';
 import SafetyIcon2 from '../../assets/image_iso_1.png';
 import SafetyIcon3 from '../../assets/icon-18.png';
@@ -14,7 +14,6 @@ import Cert4 from '../../assets/icon-14.png';
 const SafetySection = () => {
   return (
     <Box sx={{ py: 10, px: { xs: 2, md: 6 }, textAlign: 'center', bgcolor: '#fff' }}>
-      {/* Main Heading */}
       <Typography
         variant="h4"
         sx={{
@@ -27,7 +26,6 @@ const SafetySection = () => {
         Your Safety, Our Obsession
       </Typography>
 
-      {/* Subheading */}
       <Typography
         variant="body1"
         sx={{
@@ -40,7 +38,6 @@ const SafetySection = () => {
         We ensure state-of-the-art safety measures during and after post-installation
       </Typography>
 
-      {/* Safety Icons */}
       <Grid container spacing={4} justifyContent="center" sx={{ mb: 8 }}>
         {[ 
           { icon: SafetyIcon1, label: 'Safety Harness & Helmets' },
@@ -70,7 +67,6 @@ const SafetySection = () => {
         ))}
       </Grid>
 
-      {/* Certification Heading */}
       <Typography
         variant="h5"
         sx={{
@@ -84,7 +80,6 @@ const SafetySection = () => {
         Certified by Leading Organizations
       </Typography>
 
-      {/* Certification Logos */}
       <Grid container spacing={12} justifyContent="center">
         {[Cert1, Cert2, Cert3, Cert4].map((cert, index) => (
           <Grid item xs={6} sm={3} key={index}>

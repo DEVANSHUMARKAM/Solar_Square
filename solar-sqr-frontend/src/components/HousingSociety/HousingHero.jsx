@@ -1,3 +1,5 @@
+//enquiry form of housing societies
+
 import React, { useEffect, useState } from 'react';
 import {
   Box,
@@ -206,7 +208,6 @@ const HousingHero = () => {
               mt: { xs: 4, md: 0 },
             }}
           >
-            {/* Text Fields */}
             {[
               { label: 'Full Name', field: 'fullName' },
               { label: 'Name of Housing Society', field: 'societyName' },
@@ -227,7 +228,6 @@ const HousingHero = () => {
               </Box>
             ))}
 
-            {/* Bill Buttons */}
             <Typography sx={{ fontWeight: 800, fontSize: 14, mt: 2, mb: 1 }}>
               Monthly Electricity Bill <span style={{ color: 'red' }}>*</span>
             </Typography>
@@ -256,7 +256,6 @@ const HousingHero = () => {
               ))}
             </Box>
 
-            {/* Designation Buttons */}
             <Typography sx={{ fontWeight: 800, fontSize: 14, mb: 1 }}>
               What is your designation in Housing Society? <span style={{ color: 'red' }}>*</span>
             </Typography>
@@ -285,7 +284,6 @@ const HousingHero = () => {
               ))}
             </Box>
 
-            {/* Approval Dropdown */}
             <Typography sx={{ fontWeight: 800, fontSize: 14, mb: 1 }}>
               AGM approval status <span style={{ color: 'red' }}>*</span>
             </Typography>
@@ -303,7 +301,6 @@ const HousingHero = () => {
               ))}
             </TextField>
 
-            {/* Checkbox */}
             <FormControlLabel
               control={
                 <Checkbox
@@ -322,7 +319,6 @@ const HousingHero = () => {
               }
             />
 
-            {/* Submit Button */}
             <Button
               fullWidth
               variant="contained"
@@ -345,7 +341,6 @@ const HousingHero = () => {
               {submitting ? 'Submitting...' : 'Submit Details'}
             </Button>
 
-            {/* Snackbar Notification */}
             <Snackbar
               open={status.message !== ''}
               autoHideDuration={3000}

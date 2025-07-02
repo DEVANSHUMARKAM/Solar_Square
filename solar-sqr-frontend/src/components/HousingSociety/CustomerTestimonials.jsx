@@ -1,3 +1,5 @@
+//customers reviews
+
 import React, { useEffect, useRef, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 
@@ -32,7 +34,6 @@ const testimonials = [
   },
 ];
 
-// duplicate testimonials to loop
 const loopedTestimonials = [...testimonials, ...testimonials];
 
 const CustomerTestimonials = () => {
@@ -48,9 +49,9 @@ const CustomerTestimonials = () => {
   }, []);
 
   useEffect(() => {
-    const totalSlides = loopedTestimonials.length / 2; // 4 unique, 8 total
+    const totalSlides = loopedTestimonials.length / 2; 
     const container = sliderRef.current;
-    const slideWidth = container.offsetWidth / 2; // 2 slides visible
+    const slideWidth = container.offsetWidth / 2; 
 
     container.style.transition = 'transform 0.8s ease-in-out';
     container.style.transform = `translateX(-${slideWidth * index}px)`;
@@ -60,7 +61,7 @@ const CustomerTestimonials = () => {
         container.style.transition = 'none';
         container.style.transform = `translateX(0px)`;
         setIndex(0);
-      }, 900); // after transition ends
+      }, 900); 
     }
   }, [index]);
 

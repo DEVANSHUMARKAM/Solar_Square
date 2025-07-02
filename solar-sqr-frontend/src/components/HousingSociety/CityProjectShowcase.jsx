@@ -1,8 +1,9 @@
+//showcasing the cites with their maps
+
 import React, { useState } from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-// Import assets
 import BengaluruImage from '../../assets/bengluru-min.png';
 import PuneImage from '../../assets/pune-min.png';
 import MumbaiImage from '../../assets/Seawood-1-min.png';
@@ -48,7 +49,7 @@ const cities = [
 ];
 
 const CityProjectShowcase = () => {
-  const [activeCity, setActiveCity] = useState(cities[2]); // Default: Bengaluru
+  const [activeCity, setActiveCity] = useState(cities[2]); 
 
   return (
     <Box
@@ -67,7 +68,6 @@ const CityProjectShowcase = () => {
         justifyContent="center"
         sx={{ maxWidth: '1200px' }}
       >
-        {/* LEFT SECTION */}
         <Grid item xs={12} md={6}>
           <Box sx={{ display: 'flex', gap: 6, mb: 4, flexWrap: 'wrap' }}>
             {cities.map((city) => (
@@ -105,7 +105,6 @@ const CityProjectShowcase = () => {
             ))}
           </Box>
 
-          {/* Capacity Projects */}
           <Typography
             sx={{
               fontSize: 20,
@@ -136,7 +135,6 @@ const CityProjectShowcase = () => {
           ))}
         </Grid>
 
-        {/* RIGHT SECTION - MAP */}
         <Grid item xs={12} md={6}>
           <Box
             component="img"

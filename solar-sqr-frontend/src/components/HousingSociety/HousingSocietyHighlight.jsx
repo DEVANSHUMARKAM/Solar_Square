@@ -1,11 +1,11 @@
-import React from 'react';
+//Highlights
+
 import { Box, Typography, Grid } from '@mui/material';
-import GodrejImage from '../../assets/Seawood-1-min.png'; // Update path if needed
+import GodrejImage from '../../assets/Seawood-1-min.png';
 
 const HousingSocietyHighlight = () => {
   return (
     <Box sx={{ py: 10, px: { xs: 2, md: 8 }, bgcolor: '#fff' }}>
-      {/* Section Headings */}
       <Box sx={{ textAlign: 'center', mb: 6 }}>
         <Typography
           variant="h4"
@@ -30,9 +30,7 @@ const HousingSocietyHighlight = () => {
         </Typography>
       </Box>
 
-      {/* Image + Description Block */}
       <Grid container spacing={6} alignItems="center" justifyContent="center">
-        {/* Left Image */}
         <Grid item xs={12} md={6}>
           <Box
             component="img"
@@ -49,7 +47,6 @@ const HousingSocietyHighlight = () => {
           />
         </Grid>
 
-        {/* Right Description */}
         <Grid item xs={12} md={6}>
           <Box sx={{ textAlign: 'left', maxWidth: 550, mx: 'auto' }}>
             <Typography

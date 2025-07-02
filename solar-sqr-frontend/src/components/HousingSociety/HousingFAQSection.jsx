@@ -1,3 +1,5 @@
+//faq asked by the customers
+
 import React, { useState } from 'react';
 import { Box, Grid, Typography, IconButton, Collapse } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';

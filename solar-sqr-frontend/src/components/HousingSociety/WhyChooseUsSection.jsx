@@ -1,14 +1,13 @@
-import React from 'react';
+//rating and reviews of their company
+
 import { Box, Typography, Grid } from '@mui/material';
 
-// Images
-import StarRating from '../../assets/rated-google-review.png'; // stars with user faces
+import StarRating from '../../assets/rated-google-review.png'; 
 import Icon1 from '../../assets/icon_2.png';
 import Icon2 from '../../assets/icon_3.png';
 import Icon3 from '../../assets/icon_4.png';
 import Icon4 from '../../assets/icon_5.png';
 
-// Company logos
 import Godrej from '../../assets/godrej_icon.png';
 import Piramal from '../../assets/piramal_icon.png';
 import Lodha from '../../assets/lodha_icon.png';
@@ -34,7 +33,6 @@ const WhyChooseUsSection = () => {
   return (
     <Box sx={{ textAlign: 'center', px: { xs: 2, sm: 6 }, py: 6 }}>
       
-      {/* Rating Row */}
       <Box sx={{ mb: 3 }}>
         <Box component="img" src={StarRating} alt="Rating" sx={{ height: 60, mb: 1 }} />
         <Typography
@@ -49,7 +47,6 @@ const WhyChooseUsSection = () => {
         </Typography>
       </Box>
 
-      {/* Main Heading */}
       <Typography
         variant="h6"
         sx={{
@@ -63,7 +60,6 @@ const WhyChooseUsSection = () => {
         India’s <Box component="span" sx={{ color: '#00AEEF' }}>#1</Box> home solar company*
       </Typography>
 
-      {/* Why Choose Us */}
       <Box sx={{ maxWidth: 800, mx: 'auto', mb: 10 }}>
         <Typography
           variant="h6"

@@ -1,6 +1,7 @@
-import React from 'react';
+//download their guide book
+
 import { Box, Grid, Typography, Button } from '@mui/material';
-import GuideImage from '../../assets/GuideHousing.png'; // Replace with your actual image
+import GuideImage from '../../assets/GuideHousing.png'; 
 
 const bulletPoints = [
     'How much can you save by going solar',
@@ -25,7 +26,6 @@ const GuideDownloadSection = () => {
                 justifyContent="space-between"
                 sx={{ maxWidth: 1300, mx: 'auto' }}
             >
-                {/* LEFT SIDE */}
                 <Grid item xs={12} md={6}>
                     <Typography
                         variant="h5"
@@ -94,7 +94,6 @@ const GuideDownloadSection = () => {
                     </Button>
                 </Grid>
 
-                {/* RIGHT IMAGE */}
                 <Grid item xs={12} md={6}>
                     <Box
                         component="img"

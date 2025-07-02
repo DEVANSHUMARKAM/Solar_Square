@@ -1,8 +1,9 @@
-import React from 'react';
+//showing advantages of solar and savings
+
 import { Box, Typography, Grid } from '@mui/material';
 import SubsidyIcon from '../../assets/emi.png';
 import FinanceIcon from '../../assets/icon_7.png';
-import BreakEvenIcon from '../../assets/icon_8.png'; // Replace with actual icons
+import BreakEvenIcon from '../../assets/icon_8.png';
 
 const savingsAdvantages = [
   {

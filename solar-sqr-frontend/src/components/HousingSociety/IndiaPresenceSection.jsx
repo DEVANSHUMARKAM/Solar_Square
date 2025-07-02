@@ -1,7 +1,8 @@
-import React from 'react';
+//showing their own presence using map
+
 import { Box, Grid, Typography } from '@mui/material';
-import BgImage from '../../assets/india-map-bg.png'; // background image
-import IndiaMap from '../../assets/india-map.png'; // india map image
+import BgImage from '../../assets/india-map-bg.png'; 
+import IndiaMap from '../../assets/india-map.png'; 
 
 const IndiaPresenceSection = () => {
   return (
@@ -21,7 +22,6 @@ const IndiaPresenceSection = () => {
         justifyContent="space-between"
         sx={{ maxWidth: '1300px', mx: 'auto' }}
       >
-        {/* Left: India Map */}
         <Grid item xs={12} md={6}>
           <Box
             component="img"
@@ -36,7 +36,6 @@ const IndiaPresenceSection = () => {
           />
         </Grid>
 
-        {/* Right: Text */}
         <Grid item xs={12} md={6}>
           <Typography
             sx={{
