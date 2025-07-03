@@ -12,6 +12,7 @@ import NewsSection from './components/Home/NewsSection';
 import IntroAccordion from './components/Main/IntroAccordion';
 import Footer from './components/Main/Footer';
 import LocationFooter from './components/Main/LocationFooter';
+import ScrollToTop from './components/ScrollToTop'; // <-- add this
 
 // Pages
 import Home from './pages/Home';
@@ -23,6 +24,7 @@ import Ongridpage from './pages/Ongridpage';
 function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* <-- add this inside Router, outside Routes */}
 
       <Routes>
         {/* Landing Page Route */}
@@ -31,7 +33,6 @@ function App() {
           element={
             <>
               <Header />
-
               <Landing />
               <OurSolarSolution />
               <Recommend />
